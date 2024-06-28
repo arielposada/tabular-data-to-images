@@ -1,0 +1,1173 @@
+Microsoft Windows [Version 10.0.22631.3737]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Windows\System32>pip install cv2
+ERROR: Could not find a version that satisfies the requirement cv2 (from versions: none)
+ERROR: No matching distribution found for cv2
+
+C:\Windows\System32>pip3 install cv2
+ERROR: Could not find a version that satisfies the requirement cv2 (from versions: none)
+ERROR: No matching distribution found for cv2
+
+C:\Windows\System32>pip install opencv-python
+Collecting opencv-python
+  Downloading opencv_python-4.10.0.84-cp37-abi3-win_amd64.whl.metadata (20 kB)
+Requirement already satisfied: numpy>=1.21.2 in c:\python312\lib\site-packages (from opencv-python) (1.26.4)
+Downloading opencv_python-4.10.0.84-cp37-abi3-win_amd64.whl (38.8 MB)
+   ---------------------------------------- 38.8/38.8 MB 29.7 MB/s eta 0:00:00
+Installing collected packages: opencv-python
+Successfully installed opencv-python-4.10.0.84
+
+C:\Windows\System32>pip uninstall mpi4py
+Found existing installation: mpi4py 3.1.6
+Uninstalling mpi4py-3.1.6:
+  Would remove:
+    c:\python312\lib\site-packages\mpi.pth
+    c:\python312\lib\site-packages\mpi4py-3.1.6.dist-info\*
+    c:\python312\lib\site-packages\mpi4py\*
+Proceed (Y/n)? y
+  Successfully uninstalled mpi4py-3.1.6
+
+C:\Windows\System32>pip install mpi4py
+Collecting mpi4py
+  Using cached mpi4py-3.1.6-cp312-cp312-win_amd64.whl.metadata (8.0 kB)
+Using cached mpi4py-3.1.6-cp312-cp312-win_amd64.whl (471 kB)
+Installing collected packages: mpi4py
+Successfully installed mpi4py-3.1.6
+
+C:\Windows\System32>cd C:\Program Files\WindowsApps
+
+C:\Program Files\WindowsApps>dir
+ Volume in drive C is Windows
+ Volume Serial Number is 20C0-F08A
+
+ Directory of C:\Program Files\WindowsApps
+
+26/06/2024  05:53 p. m.    <DIR>          ..
+10/06/2024  06:14 p. m.    <DIR>          21336V3TApps.MovieMaker-FREE_3.7.5.0_neutral_split.scale-125_bzg06mxvgh4fa
+10/06/2024  06:15 p. m.    <DIR>          21336V3TApps.MovieMaker-FREE_3.7.5.0_neutral_~_bzg06mxvgh4fa
+10/06/2024  06:15 p. m.    <DIR>          21336V3TApps.MovieMaker-FREE_3.7.5.0_x64__bzg06mxvgh4fa
+17/06/2024  09:25 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2423.10.0_neutral_split.scale-125_cv1g1gvanyjgm
+18/06/2024  05:58 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2423.10.0_neutral_~_cv1g1gvanyjgm
+18/06/2024  05:58 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2423.10.0_x64__cv1g1gvanyjgm
+23/06/2024  04:41 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2424.6.0_neutral_split.scale-125_cv1g1gvanyjgm
+23/06/2024  04:41 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2424.6.0_neutral_~_cv1g1gvanyjgm
+23/06/2024  04:41 p. m.    <DIR>          5319275A.WhatsAppDesktop_2.2424.6.0_x64__cv1g1gvanyjgm
+18/06/2024  05:58 p. m.    <DIR>          AD2F1837.BOAudioControl_1.47.308.0_neutral_split.scale-100_v10z8vjag6ke6
+01/06/2024  07:15 p. m.    <DIR>          AD2F1837.BOAudioControl_1.47.308.0_neutral_split.scale-125_v10z8vjag6ke6
+18/06/2024  05:58 p. m.    <DIR>          AD2F1837.BOAudioControl_1.47.308.0_neutral_~_v10z8vjag6ke6
+18/06/2024  05:58 p. m.    <DIR>          AD2F1837.BOAudioControl_1.47.308.0_x64__v10z8vjag6ke6
+13/06/2024  07:23 p. m.    <DIR>          AD2F1837.HPInc.EnergyStar_1.2.0.0_neutral_split.scale-100_v10z8vjag6ke6
+13/06/2024  07:23 p. m.    <DIR>          AD2F1837.HPInc.EnergyStar_1.2.0.0_neutral_~_v10z8vjag6ke6
+13/06/2024  07:23 p. m.    <DIR>          AD2F1837.HPInc.EnergyStar_1.2.0.0_x64__v10z8vjag6ke6
+11/05/2024  06:35 p. m.    <DIR>          AD2F1837.HPPCHardwareDiagnosticsWindows_2.6.0.0_x64__v10z8vjag6ke6
+15/06/2024  11:59 p. m.    <DIR>          AD2F1837.HPPrinterControl_154.1.1072.0_neutral_split.language-es_v10z8vjag6ke615/06/2024  11:59 p. m.    <DIR>          AD2F1837.HPPrinterControl_154.1.1072.0_neutral_~_v10z8vjag6ke6
+15/06/2024  11:59 p. m.    <DIR>          AD2F1837.HPPrinterControl_154.1.1072.0_x64__v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.HPPrivacySettings_1.3.7.0_neutral_split.language-es_v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.HPPrivacySettings_1.3.7.0_neutral_split.scale-100_v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.HPPrivacySettings_1.3.7.0_neutral_split.scale-125_v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.HPPrivacySettings_1.3.7.0_neutral_~_v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.HPPrivacySettings_1.3.7.0_x64__v10z8vjag6ke6
+18/05/2024  12:12 a. m.    <DIR>          AD2F1837.HPSupportAssistant_9.35.35.0_neutral_~_v10z8vjag6ke6
+18/05/2024  12:12 a. m.    <DIR>          AD2F1837.HPSupportAssistant_9.35.35.0_x64__v10z8vjag6ke6
+01/05/2024  05:33 a. m.    <DIR>          AD2F1837.HPSystemEventUtility_1.5.10.0_x64__v10z8vjag6ke6
+02/03/2024  05:00 p. m.    <DIR>          AD2F1837.myHP_29.52403.100.0_x64__v10z8vjag6ke6
+01/06/2024  07:16 p. m.    <DIR>          AD2F1837.myHP_32.52414.341.0_neutral_split.scale-125_v10z8vjag6ke6
+02/06/2024  08:20 a. m.    <DIR>          AD2F1837.myHP_32.52414.341.0_neutral_~_v10z8vjag6ke6
+02/06/2024  08:20 a. m.    <DIR>          AD2F1837.myHP_32.52414.341.0_x64__v10z8vjag6ke6
+27/03/2024  08:25 a. m.    <DIR>          AD2F1837.OMENCommandCenter_1101.2402.4.0_x64__v10z8vjag6ke6
+22/05/2024  05:16 p. m.    <DIR>          AD2F1837.OMENCommandCenter_1101.2404.6.0_x64__v10z8vjag6ke6
+22/05/2024  05:16 p. m.    <DIR>          AD2F1837.OMENCommandCenter_1101.2405.3.0_x64__v10z8vjag6ke6
+23/06/2024  04:41 p. m.    <DIR>          AD2F1837.OMENCommandCenter_1101.2406.3.0_x64__v10z8vjag6ke6
+16/06/2024  12:17 a. m.    <DIR>          AppUp.IntelGraphicsExperience_1.100.5536.0_neutral_split.language-es_8j3eq9eme6ctt
+16/06/2024  12:17 a. m.    <DIR>          AppUp.IntelGraphicsExperience_1.100.5536.0_neutral_split.scale-100_8j3eq9eme6ctt
+16/06/2024  12:17 a. m.    <DIR>          AppUp.IntelGraphicsExperience_1.100.5536.0_neutral_split.scale-125_8j3eq9eme6ctt
+16/06/2024  12:17 a. m.    <DIR>          AppUp.IntelGraphicsExperience_1.100.5536.0_neutral_~_8j3eq9eme6ctt
+16/06/2024  12:17 a. m.    <DIR>          AppUp.IntelGraphicsExperience_1.100.5536.0_x64__8j3eq9eme6ctt
+01/06/2024  07:18 p. m.    <DIR>          C27EB4BA.DropboxOEM_23.4.24.0_neutral_split.language-es_xbfy0k16fey96
+01/06/2024  07:18 p. m.    <DIR>          C27EB4BA.DropboxOEM_23.4.24.0_neutral_split.scale-100_xbfy0k16fey96
+01/06/2024  07:18 p. m.    <DIR>          C27EB4BA.DropboxOEM_23.4.24.0_neutral_split.scale-125_xbfy0k16fey96
+01/06/2024  07:18 p. m.    <DIR>          C27EB4BA.DropboxOEM_23.4.24.0_neutral_~_xbfy0k16fey96
+01/06/2024  07:18 p. m.    <DIR>          C27EB4BA.DropboxOEM_23.4.24.0_x64__xbfy0k16fey96
+23/06/2024  04:40 p. m.    <DIR>          Clipchamp.Clipchamp_3.1.10620.0_neutral_split.language-es_yxz26nhyzhsrt
+23/06/2024  04:40 p. m.    <DIR>          Clipchamp.Clipchamp_3.1.10620.0_neutral_split.scale-100_yxz26nhyzhsrt
+23/06/2024  04:40 p. m.    <DIR>          Clipchamp.Clipchamp_3.1.10620.0_neutral_split.scale-125_yxz26nhyzhsrt
+23/06/2024  04:40 p. m.    <DIR>          Clipchamp.Clipchamp_3.1.10620.0_neutral__yxz26nhyzhsrt
+23/06/2024  04:40 p. m.    <DIR>          Clipchamp.Clipchamp_3.1.10620.0_neutral_~_yxz26nhyzhsrt
+26/06/2024  06:08 p. m.    <DIR>          Deleted
+11/02/2024  01:39 a. m.    <DIR>          DeletedAllUserPackages
+06/05/2022  11:24 p. m.    <DIR>          Merged
+13/02/2024  05:39 p. m.    <DIR>          Microsoft.549981C3F5F10_4.2308.1005.0_neutral_~_8wekyb3d8bbwe
+13/02/2024  05:39 p. m.    <DIR>          Microsoft.549981C3F5F10_4.2308.1005.0_x64__8wekyb3d8bbwe
+25/06/2024  04:51 p. m.    <DIR>          Microsoft.6365217CE6EB4_102.2406.5002.0_x64__8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.AV1VideoExtension_1.2.1293.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.AV1VideoExtension_1.2.1293.0_x64__8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          Microsoft.BingNews_4.55.62231.0_neutral_split.language-es_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          Microsoft.BingNews_4.55.62231.0_neutral_split.scale-100_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          Microsoft.BingNews_4.55.62231.0_neutral_split.scale-125_8wekyb3d8bbwe
+05/03/2024  03:13 p. m.    <DIR>          Microsoft.BingNews_4.55.62231.0_neutral_split.scale-150_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          Microsoft.BingNews_4.55.62231.0_x64__8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          Microsoft.BingNews_4.8.11001.0_neutral_~_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.BingWeather_4.53.61401.0_neutral_split.language-es_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.BingWeather_4.53.61401.0_neutral_split.scale-100_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.BingWeather_4.53.61401.0_neutral_split.scale-125_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.BingWeather_4.53.61401.0_neutral_~_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.BingWeather_4.53.61401.0_x64__8wekyb3d8bbwe
+01/06/2024  04:48 p. m.    <DIR>          Microsoft.DesktopAppInstaller_1.22.11261.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  04:48 p. m.    <DIR>          Microsoft.DesktopAppInstaller_1.22.11261.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  04:48 p. m.    <DIR>          Microsoft.DesktopAppInstaller_1.22.11261.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  04:48 p. m.    <DIR>          Microsoft.DesktopAppInstaller_1.22.11261.0_x64__8wekyb3d8bbwe
+01/06/2024  04:48 p. m.    <DIR>          Microsoft.DesktopAppInstaller_2024.506.2113.0_neutral_~_8wekyb3d8bbwe
+17/06/2024  09:27 p. m.    <DIR>          Microsoft.GamingApp_2406.1001.20.0_neutral_split.language-es_8wekyb3d8bbwe
+17/06/2024  09:27 p. m.    <DIR>          Microsoft.GamingApp_2406.1001.20.0_neutral_split.scale-100_8wekyb3d8bbwe
+17/06/2024  09:26 p. m.    <DIR>          Microsoft.GamingApp_2406.1001.20.0_neutral_split.scale-125_8wekyb3d8bbwe
+17/06/2024  09:27 p. m.    <DIR>          Microsoft.GamingApp_2406.1001.20.0_neutral_~_8wekyb3d8bbwe
+17/06/2024  09:27 p. m.    <DIR>          Microsoft.GamingApp_2406.1001.20.0_x64__8wekyb3d8bbwe
+14/05/2024  08:23 p. m.    <DIR>          Microsoft.GetHelp_10.2403.20861.0_neutral_~_8wekyb3d8bbwe
+14/05/2024  08:23 p. m.    <DIR>          Microsoft.GetHelp_10.2403.20861.0_x64__8wekyb3d8bbwe
+15/06/2024  10:26 p. m.    <DIR>          Microsoft.Getstarted_10.2312.1.0_neutral_split.language-es_8wekyb3d8bbwe
+15/06/2024  10:26 p. m.    <DIR>          Microsoft.Getstarted_10.2312.1.0_neutral_split.scale-125_8wekyb3d8bbwe
+15/06/2024  10:26 p. m.    <DIR>          Microsoft.Getstarted_10.2312.1.0_x64__8wekyb3d8bbwe
+15/06/2024  10:26 p. m.    <DIR>          Microsoft.Getstarted_2021.2312.1.0_neutral_~_8wekyb3d8bbwe
+13/04/2024  04:11 a. m.    <DIR>          Microsoft.HEIFImageExtension_1.1.861.0_neutral_~_8wekyb3d8bbwe
+13/04/2024  04:11 a. m.    <DIR>          Microsoft.HEIFImageExtension_1.1.861.0_x64__8wekyb3d8bbwe
+15/05/2024  11:30 p. m.    <DIR>          Microsoft.HEVCVideoExtension_2.1.1161.0_neutral_~_8wekyb3d8bbwe
+15/05/2024  11:30 p. m.    <DIR>          Microsoft.HEVCVideoExtension_2.1.1161.0_x64__8wekyb3d8bbwe
+22/06/2024  04:33 p. m.    <DIR>          Microsoft.MicrosoftEdge.Stable_126.0.2592.68_neutral__8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.MicrosoftOfficeHub_18.2405.1221.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.MicrosoftOfficeHub_18.2405.1221.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.MicrosoftOfficeHub_18.2405.1221.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.MicrosoftOfficeHub_18.2405.1221.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.MicrosoftOfficeHub_18.2405.1221.0_x64__8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.MicrosoftSolitaireCollection_4.19.5100.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.MicrosoftSolitaireCollection_4.19.5100.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.MicrosoftSolitaireCollection_4.19.5100.0_x64__8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.MicrosoftStickyNotes_4.0.6002.0_neutral_split.language-es_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.MicrosoftStickyNotes_4.0.6002.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.MicrosoftStickyNotes_4.0.6002.0_neutral_split.scale-125_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.MicrosoftStickyNotes_4.0.6002.0_x64__8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.MicrosoftStickyNotes_6.0.2.0_neutral_~_8wekyb3d8bbwe
+11/02/2024  01:23 a. m.    <DIR>          Microsoft.MixedReality.Portal_2000.22041.1123.0_neutral_split.language-es_8wekyb3d8bbwe
+11/02/2024  01:23 a. m.    <DIR>          Microsoft.MixedReality.Portal_2000.22041.1123.0_neutral_split.scale-125_8wekyb3d8bbwe
+11/02/2024  01:23 a. m.    <DIR>          Microsoft.MixedReality.Portal_2000.22041.1123.0_neutral_~_8wekyb3d8bbwe
+11/02/2024  01:23 a. m.    <DIR>          Microsoft.MixedReality.Portal_2000.22041.1123.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Framework.1.3_1.3.24211.0_x64__8wekyb3d8bbwe
+13/02/2024  05:42 p. m.    <DIR>          Microsoft.NET.Native.Framework.1.3_1.3.24211.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Framework.1.7_1.7.27413.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Framework.1.7_1.7.27413.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Framework.2.1_2.1.27427.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Framework.2.1_2.1.27427.0_x86__8wekyb3d8bbwe
+10/02/2024  11:40 p. m.    <DIR>          Microsoft.NET.Native.Framework.2.2_2.2.29512.0_x64__8wekyb3d8bbwe
+10/02/2024  11:40 p. m.    <DIR>          Microsoft.NET.Native.Framework.2.2_2.2.29512.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.1.4_1.4.24201.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.1.4_1.4.24201.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.1.7_1.7.27422.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.1.7_1.7.27422.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.2.1_2.1.26424.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.NET.Native.Runtime.2.1_2.1.26424.0_x86__8wekyb3d8bbwe
+10/02/2024  11:40 p. m.    <DIR>          Microsoft.NET.Native.Runtime.2.2_2.2.28604.0_x64__8wekyb3d8bbwe
+10/02/2024  11:40 p. m.    <DIR>          Microsoft.NET.Native.Runtime.2.2_2.2.28604.0_x86__8wekyb3d8bbwe
+26/06/2024  05:51 p. m.    <DIR>          Microsoft.OneDriveSync_24111.602.3.0_neutral__8wekyb3d8bbwe
+11/02/2024  01:59 a. m.    <DIR>          Microsoft.OutlookForWindows_1.2024.111.100_x64__8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.Paint_11.2404.1018.0_neutral_split.language-es_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.Paint_11.2404.1018.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.Paint_11.2404.1018.0_neutral_split.scale-125_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.Paint_11.2404.1018.0_neutral_~_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.Paint_11.2404.1018.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.People_10.2202.100.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.People_10.2202.100.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.People_10.2202.100.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.People_10.2202.100.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.People_2021.2202.100.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.PowerAutomateDesktop_1.0.1194.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.PowerAutomateDesktop_1.0.1194.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.PowerAutomateDesktop_1.0.1194.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.PowerAutomateDesktop_1.0.1194.0_x64__8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.PowerAutomateDesktop_11.2404.251.0_neutral_~_8wekyb3d8bbwe
+18/05/2024  08:59 p. m.    <DIR>          Microsoft.RawImageExtension_2.3.1221.0_neutral_~_8wekyb3d8bbwe
+18/05/2024  08:59 p. m.    <DIR>          Microsoft.RawImageExtension_2.3.1221.0_x64__8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.ScreenSketch_11.2405.32.0_neutral_split.language-es_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.ScreenSketch_11.2405.32.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.ScreenSketch_11.2405.32.0_neutral_split.scale-125_8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.ScreenSketch_11.2405.32.0_x64__8wekyb3d8bbwe
+23/06/2024  04:40 p. m.    <DIR>          Microsoft.ScreenSketch_2022.2405.32.0_neutral_~_8wekyb3d8bbwe
+27/03/2024  05:32 p. m.    <DIR>          Microsoft.SecHealthUI_1000.25992.9000.0_x64__8wekyb3d8bbwe
+11/02/2024  01:31 a. m.    <DIR>          Microsoft.Services.Store.Engagement_10.0.23012.0_x64__8wekyb3d8bbwe
+11/02/2024  01:31 a. m.    <DIR>          Microsoft.Services.Store.Engagement_10.0.23012.0_x86__8wekyb3d8bbwe
+23/05/2024  12:35 p. m.    <DIR>          Microsoft.StorePurchaseApp_22403.1401.1.0_neutral_~_8wekyb3d8bbwe
+23/05/2024  12:35 p. m.    <DIR>          Microsoft.StorePurchaseApp_22403.1401.1.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.Todos_0.114.7122.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.Todos_0.114.7122.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.Todos_0.114.7122.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.Todos_0.114.7122.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.Todos_2.114.7122.0_neutral_~_8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.UI.Xaml.2.3_2.32002.13001.0_x64__8wekyb3d8bbwe
+24/03/2024  01:56 a. m.    <DIR>          Microsoft.UI.Xaml.2.4_2.42007.9001.0_x86__8wekyb3d8bbwe
+15/05/2024  11:30 p. m.    <DIR>          Microsoft.UI.Xaml.2.6_2.62112.3002.0_x64__8wekyb3d8bbwe
+15/05/2024  11:30 p. m.    <DIR>          Microsoft.UI.Xaml.2.6_2.62112.3002.0_x86__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.UI.Xaml.2.7_7.2208.15002.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.UI.Xaml.2.7_7.2208.15002.0_x86__8wekyb3d8bbwe
+11/02/2024  01:10 a. m.    <DIR>          Microsoft.UI.Xaml.2.8_8.2310.30001.0_x64__8wekyb3d8bbwe
+11/02/2024  01:10 a. m.    <DIR>          Microsoft.UI.Xaml.2.8_8.2310.30001.0_x86__8wekyb3d8bbwe
+11/02/2024  08:15 p. m.    <DIR>          Microsoft.VCLibs.120.00_12.0.21005.1_x64__8wekyb3d8bbwe
+11/02/2024  08:15 p. m.    <DIR>          Microsoft.VCLibs.120.00_12.0.21005.1_x86__8wekyb3d8bbwe
+11/02/2024  01:10 a. m.    <DIR>          Microsoft.VCLibs.140.00.UWPDesktop_14.0.33519.0_x64__8wekyb3d8bbwe
+21/05/2024  09:46 p. m.    <DIR>          Microsoft.VCLibs.140.00.UWPDesktop_14.0.33728.0_x64__8wekyb3d8bbwe
+21/05/2024  09:46 p. m.    <DIR>          Microsoft.VCLibs.140.00.UWPDesktop_14.0.33728.0_x86__8wekyb3d8bbwe
+11/02/2024  01:05 a. m.    <DIR>          Microsoft.VCLibs.140.00_14.0.32530.0_x64__8wekyb3d8bbwe
+13/11/2023  02:30 a. m.    <DIR>          Microsoft.VCLibs.140.00_14.0.32530.0_x86__8wekyb3d8bbwe
+25/06/2024  04:57 p. m.    <DIR>          Microsoft.VCLibs.140.00_14.0.33519.0_x64__8wekyb3d8bbwe
+25/06/2024  04:57 p. m.    <DIR>          Microsoft.VCLibs.140.00_14.0.33519.0_x86__8wekyb3d8bbwe
+10/03/2024  10:58 a. m.    <DIR>          Microsoft.VP9VideoExtensions_1.1.451.0_neutral_~_8wekyb3d8bbwe
+10/03/2024  10:58 a. m.    <DIR>          Microsoft.VP9VideoExtensions_1.1.451.0_x64__8wekyb3d8bbwe
+30/05/2024  07:18 p. m.    <DIR>          Microsoft.WebMediaExtensions_1.1.1295.0_neutral_~_8wekyb3d8bbwe
+30/05/2024  07:18 p. m.    <DIR>          Microsoft.WebMediaExtensions_1.1.1295.0_x64__8wekyb3d8bbwe
+23/05/2024  12:35 p. m.    <DIR>          Microsoft.WebpImageExtension_1.1.1221.0_neutral_~_8wekyb3d8bbwe
+23/05/2024  12:35 p. m.    <DIR>          Microsoft.WebpImageExtension_1.1.1221.0_x64__8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.Whiteboard_53.21110.548.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.Whiteboard_53.21110.548.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.Whiteboard_53.21110.548.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:18 p. m.    <DIR>          Microsoft.Whiteboard_53.21110.548.0_x64__8wekyb3d8bbwe
+11/02/2024  01:39 a. m.    <DIR>          Microsoft.WinAppRuntime.DDLM.4000.964.11.0-x6_4000.964.11.0_x64__8wekyb3d8bbwe11/02/2024  01:39 a. m.    <DIR>          Microsoft.WinAppRuntime.DDLM.4000.964.11.0-x8_4000.964.11.0_x86__8wekyb3d8bbwe11/02/2024  02:00 a. m.    <DIR>          Microsoft.Windows.DevHome_0.1000.389.0_neutral_split.language-es_8wekyb3d8bbwe11/02/2024  02:00 a. m.    <DIR>          Microsoft.Windows.DevHome_0.1000.389.0_neutral_split.scale-125_8wekyb3d8bbwe
+11/02/2024  02:00 a. m.    <DIR>          Microsoft.Windows.DevHome_0.1000.389.0_x64__8wekyb3d8bbwe
+11/02/2024  02:00 a. m.    <DIR>          Microsoft.Windows.DevHome_0.1001.390.0_neutral_~_8wekyb3d8bbwe
+17/06/2024  09:26 p. m.    <DIR>          Microsoft.Windows.Photos_2024.11060.12008.0_neutral_~_8wekyb3d8bbwe
+17/06/2024  09:26 p. m.    <DIR>          Microsoft.Windows.Photos_2024.11060.12008.0_x64__8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsAlarms_1.0.191.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsAlarms_1.0.191.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsAlarms_1.0.191.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsAlarms_1.0.191.0_x64__8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsAlarms_2021.2403.8.0_neutral_~_8wekyb3d8bbwe
+13/02/2024  05:39 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.1_1005.616.1651.0_x64__8wekyb3d8bbwe
+13/02/2024  05:39 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.1_1005.616.1651.0_x86__8wekyb3d8bbwe
+11/02/2024  08:15 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.2_2000.802.31.0_x64__8wekyb3d8bbwe
+11/02/2024  08:15 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.2_2000.802.31.0_x86__8wekyb3d8bbwe
+13/02/2024  05:42 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.3_3000.934.1904.0_x64__8wekyb3d8bbwe
+13/02/2024  05:42 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.3_3000.934.1904.0_x86__8wekyb3d8bbwe
+14/05/2024  06:00 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.4_4000.1227.1637.0_x64__8wekyb3d8bbwe
+14/05/2024  06:00 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.4_4000.1227.1637.0_x86__8wekyb3d8bbwe
+02/05/2024  06:02 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.5_5001.119.156.0_x64__8wekyb3d8bbwe
+02/05/2024  06:01 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.5_5001.119.156.0_x86__8wekyb3d8bbwe
+13/06/2024  09:24 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.5_5001.159.55.0_x64__8wekyb3d8bbwe
+13/06/2024  09:24 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.5_5001.159.55.0_x86__8wekyb3d8bbwe
+14/04/2024  12:52 p. m.    <DIR>          Microsoft.WindowsAppRuntime.1.5_5001.95.533.0_x64__8wekyb3d8bbwe
+10/06/2024  06:15 p. m.    <DIR>          Microsoft.WindowsCalculator_11.2405.2.0_neutral_split.language-es_8wekyb3d8bbwe
+10/06/2024  06:15 p. m.    <DIR>          Microsoft.WindowsCalculator_11.2405.2.0_neutral_split.scale-100_8wekyb3d8bbwe
+10/06/2024  06:15 p. m.    <DIR>          Microsoft.WindowsCalculator_11.2405.2.0_neutral_split.scale-125_8wekyb3d8bbwe
+10/06/2024  06:15 p. m.    <DIR>          Microsoft.WindowsCalculator_11.2405.2.0_x64__8wekyb3d8bbwe
+10/06/2024  06:15 p. m.    <DIR>          Microsoft.WindowsCalculator_2021.2405.2.0_neutral_~_8wekyb3d8bbwe
+10/06/2024  07:06 p. m.    <DIR>          Microsoft.WindowsCamera_2022.2405.18.0_neutral_~_8wekyb3d8bbwe
+10/06/2024  07:06 p. m.    <DIR>          Microsoft.WindowsCamera_2024.2405.18.0_neutral_split.language-es_8wekyb3d8bbwe10/06/2024  07:06 p. m.    <DIR>          Microsoft.WindowsCamera_2024.2405.18.0_neutral_split.scale-100_8wekyb3d8bbwe
+10/06/2024  07:06 p. m.    <DIR>          Microsoft.WindowsCamera_2024.2405.18.0_neutral_split.scale-125_8wekyb3d8bbwe
+10/06/2024  07:06 p. m.    <DIR>          Microsoft.WindowsCamera_2024.2405.18.0_x64__8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          microsoft.windowscommunicationsapps_16005.14326.21962.0_neutral_es-es_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          microsoft.windowscommunicationsapps_16005.14326.21962.0_neutral_es-mx_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          microsoft.windowscommunicationsapps_16005.14326.21962.0_neutral_~_8wekyb3d8bbwe
+16/06/2024  12:17 a. m.    <DIR>          microsoft.windowscommunicationsapps_16005.14326.21962.0_x64__8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsFeedbackHub_1.2405.21481.0_neutral_split.language-es_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsFeedbackHub_1.2405.21481.0_neutral_split.scale-100_8wekyb3d8bbwe
+06/06/2024  06:52 p. m.    <DIR>          Microsoft.WindowsFeedbackHub_1.2405.21481.0_neutral_split.scale-125_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsFeedbackHub_1.2405.21481.0_x64__8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsFeedbackHub_2024.527.1405.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsMaps_1.0.62.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsMaps_1.0.62.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsMaps_1.0.62.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsMaps_1.0.62.0_x64__8wekyb3d8bbwe
+01/06/2024  07:17 p. m.    <DIR>          Microsoft.WindowsMaps_2022.2403.4.0_neutral_~_8wekyb3d8bbwe
+26/06/2024  06:08 p. m.    <DIR>          Microsoft.WindowsNotepad_11.2405.13.0_neutral_split.language-es_8wekyb3d8bbwe
+26/06/2024  06:08 p. m.    <DIR>          Microsoft.WindowsNotepad_11.2405.13.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:41 p. m.    <DIR>          Microsoft.WindowsNotepad_11.2405.13.0_neutral_split.scale-125_8wekyb3d8bbwe
+26/06/2024  06:08 p. m.    <DIR>          Microsoft.WindowsNotepad_11.2405.13.0_neutral_~_8wekyb3d8bbwe
+26/06/2024  06:08 p. m.    <DIR>          Microsoft.WindowsNotepad_11.2405.13.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.WindowsScan_2014.523.326.3026_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.WindowsScan_6.3.9654.17133_neutral_ScanApp.language-es_8wekyb3d8bbwe01/06/2024  07:16 p. m.    <DIR>          Microsoft.WindowsScan_6.3.9654.17133_x64__8wekyb3d8bbwe
+18/06/2024  09:22 p. m.    <DIR>          Microsoft.WindowsSoundRecorder_1.0.78.0_neutral_split.language-es_8wekyb3d8bbwe
+18/06/2024  09:22 p. m.    <DIR>          Microsoft.WindowsSoundRecorder_1.0.78.0_neutral_split.scale-125_8wekyb3d8bbwe
+18/06/2024  09:22 p. m.    <DIR>          Microsoft.WindowsSoundRecorder_1.0.78.0_x64__8wekyb3d8bbwe
+18/06/2024  09:22 p. m.    <DIR>          Microsoft.WindowsSoundRecorder_2021.2405.0.0_neutral_~_8wekyb3d8bbwe
+21/06/2024  09:58 p. m.    <DIR>          Microsoft.WindowsStore_22405.1401.5.0_neutral_~_8wekyb3d8bbwe
+21/06/2024  09:58 p. m.    <DIR>          Microsoft.WindowsStore_22405.1401.5.0_x64__8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsTerminal_1.20.11381.0_x64__8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.WindowsTerminal_3001.20.11381.0_neutral_~_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.Xbox.TCUI_1.24.10001.0_neutral_split.language-es_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.Xbox.TCUI_1.24.10001.0_neutral_~_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxGameOverlay_1.54.4001.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxGameOverlay_1.54.4001.0_neutral_~_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxGameOverlay_1.54.4001.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.XboxGamingOverlay_7.124.5142.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.XboxGamingOverlay_7.124.5142.0_neutral_split.scale-100_8wekyb3d8bbwe01/06/2024  07:15 p. m.    <DIR>          Microsoft.XboxGamingOverlay_7.124.5142.0_neutral_split.scale-125_8wekyb3d8bbwe01/06/2024  07:16 p. m.    <DIR>          Microsoft.XboxGamingOverlay_7.124.5142.0_neutral_~_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          Microsoft.XboxGamingOverlay_7.124.5142.0_x64__8wekyb3d8bbwe
+15/06/2024  11:58 p. m.    <DIR>          Microsoft.XboxIdentityProvider_12.113.31003.0_neutral_split.language-es_8wekyb3d8bbwe
+15/06/2024  11:58 p. m.    <DIR>          Microsoft.XboxIdentityProvider_12.113.31003.0_neutral_split.scale-125_8wekyb3d8bbwe
+15/06/2024  11:58 p. m.    <DIR>          Microsoft.XboxIdentityProvider_12.113.31003.0_neutral_~_8wekyb3d8bbwe
+15/06/2024  11:58 p. m.    <DIR>          Microsoft.XboxIdentityProvider_12.113.31003.0_x64__8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_neutral_split.scale-100_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_neutral_~_8wekyb3d8bbwe
+23/06/2024  04:39 p. m.    <DIR>          Microsoft.XboxSpeechToTextOverlay_1.21.13002.0_x64__8wekyb3d8bbwe
+25/06/2024  10:45 p. m.    <DIR>          Microsoft.YourPhone_1.24052.124.0_neutral_split.language-es_8wekyb3d8bbwe
+25/06/2024  10:45 p. m.    <DIR>          Microsoft.YourPhone_1.24052.124.0_neutral_split.scale-100_8wekyb3d8bbwe
+25/06/2024  04:58 p. m.    <DIR>          Microsoft.YourPhone_1.24052.124.0_neutral_split.scale-125_8wekyb3d8bbwe
+25/06/2024  10:45 p. m.    <DIR>          Microsoft.YourPhone_1.24052.124.0_neutral_~_8wekyb3d8bbwe
+25/06/2024  10:45 p. m.    <DIR>          Microsoft.YourPhone_1.24052.124.0_x64__8wekyb3d8bbwe
+06/06/2024  06:54 p. m.    <DIR>          Microsoft.ZuneMusic_11.2405.8.0_neutral_split.language-es_8wekyb3d8bbwe
+06/06/2024  06:54 p. m.    <DIR>          Microsoft.ZuneMusic_11.2405.8.0_neutral_split.scale-100_8wekyb3d8bbwe
+06/06/2024  06:53 p. m.    <DIR>          Microsoft.ZuneMusic_11.2405.8.0_neutral_split.scale-125_8wekyb3d8bbwe
+06/06/2024  06:54 p. m.    <DIR>          Microsoft.ZuneMusic_11.2405.8.0_neutral_~_8wekyb3d8bbwe
+06/06/2024  06:54 p. m.    <DIR>          Microsoft.ZuneMusic_11.2405.8.0_x64__8wekyb3d8bbwe
+17/06/2024  09:25 p. m.    <DIR>          Microsoft.ZuneVideo_10.22091.10061.0_neutral_split.language-es_8wekyb3d8bbwe
+17/06/2024  09:25 p. m.    <DIR>          Microsoft.ZuneVideo_10.22091.10061.0_neutral_split.scale-100_8wekyb3d8bbwe
+17/06/2024  09:25 p. m.    <DIR>          Microsoft.ZuneVideo_10.22091.10061.0_x64__8wekyb3d8bbwe
+17/06/2024  09:25 p. m.    <DIR>          Microsoft.ZuneVideo_2019.22091.10061.0_neutral_~_8wekyb3d8bbwe
+13/02/2024  05:39 p. m.    <DIR>          MicrosoftCorporationII.MicrosoftFamily_0.2.40.0_neutral_~_8wekyb3d8bbwe
+13/02/2024  05:39 p. m.    <DIR>          MicrosoftCorporationII.MicrosoftFamily_0.2.40.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          MicrosoftCorporationII.QuickAssist_2.0.30.0_neutral_split.language-es_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          MicrosoftCorporationII.QuickAssist_2.0.30.0_neutral_split.scale-100_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          MicrosoftCorporationII.QuickAssist_2.0.30.0_neutral_split.scale-125_8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          MicrosoftCorporationII.QuickAssist_2.0.30.0_x64__8wekyb3d8bbwe
+01/06/2024  07:16 p. m.    <DIR>          MicrosoftCorporationII.QuickAssist_2024.326.133.0_neutral_~_8wekyb3d8bbwe
+14/05/2024  08:23 p. m.    <DIR>          MicrosoftCorporationII.WinAppRuntime.Main.1.4_4000.1227.1637.0_x64__8wekyb3d8bbwe
+13/06/2024  09:24 p. m.    <DIR>          MicrosoftCorporationII.WinAppRuntime.Main.1.5_5001.159.55.0_x64__8wekyb3d8bbwe13/06/2024  09:24 p. m.    <DIR>          MicrosoftCorporationII.WinAppRuntime.Singleton_5001.159.55.0_x64__8wekyb3d8bbwe
+22/06/2024  03:33 p. m.    <DIR>          MicrosoftTeams_24151.2105.2943.2101_x64__8wekyb3d8bbwe
+22/04/2024  09:24 p. m.    <DIR>          MicrosoftWindows.Client.CoPilot_724.1301.930.5_x64__cw5n1h2txyewy
+17/06/2024  09:38 p. m.    <DIR>          MicrosoftWindows.Client.WebExperience_524.13200.20.0_neutral_~_cw5n1h2txyewy
+17/06/2024  09:38 p. m.    <DIR>          MicrosoftWindows.Client.WebExperience_524.13200.20.0_x64__cw5n1h2txyewy
+17/06/2024  09:25 p. m.    <DIR>          MicrosoftWindows.CrossDevice_1.24052.57.0_neutral_split.language-es_cw5n1h2txyewy
+17/06/2024  09:25 p. m.    <DIR>          MicrosoftWindows.CrossDevice_1.24052.57.0_neutral_split.scale-100_cw5n1h2txyewy
+17/06/2024  09:25 p. m.    <DIR>          MicrosoftWindows.CrossDevice_1.24052.57.0_neutral_split.scale-125_cw5n1h2txyewy
+17/06/2024  09:25 p. m.    <DIR>          MicrosoftWindows.CrossDevice_1.24052.57.0_neutral_~_cw5n1h2txyewy
+17/06/2024  09:25 p. m.    <DIR>          MicrosoftWindows.CrossDevice_1.24052.57.0_x64__cw5n1h2txyewy
+02/11/2022  10:32 p. m.    <DIR>          MovedPackages
+06/05/2022  11:24 p. m.    <DIR>          Mutable
+06/05/2022  11:24 p. m.    <DIR>          MutableBackup
+24/04/2024  10:38 p. m.    <DIR>          NVIDIACorp.NVIDIAControlPanel_8.1.966.0_x64__56jybvy8sckqj
+06/05/2022  11:24 p. m.    <DIR>          Projected
+23/06/2024  04:41 p. m.    <DIR>          SpotifyAB.SpotifyMusic_1.240.599.0_x64__zpdnekdrzrea0
+               0 File(s)              0 bytes
+             309 Dir(s)  228,146,528,256 bytes free
+
+C:\Program Files\WindowsApps>pip uninstall mpi4py
+Found existing installation: mpi4py 3.1.6
+Uninstalling mpi4py-3.1.6:
+  Would remove:
+    c:\python312\lib\site-packages\mpi.pth
+    c:\python312\lib\site-packages\mpi4py-3.1.6.dist-info\*
+    c:\python312\lib\site-packages\mpi4py\*
+Proceed (Y/n)? y
+  Successfully uninstalled mpi4py-3.1.6
+
+C:\Program Files\WindowsApps>pip install mpi4py
+Collecting mpi4py
+  Using cached mpi4py-3.1.6-cp312-cp312-win_amd64.whl.metadata (8.0 kB)
+Using cached mpi4py-3.1.6-cp312-cp312-win_amd64.whl (471 kB)
+Installing collected packages: mpi4py
+Successfully installed mpi4py-3.1.6
+
+C:\Program Files\WindowsApps>pip install mpirun
+ERROR: Could not find a version that satisfies the requirement mpirun (from versions: none)
+ERROR: No matching distribution found for mpirun
+
+C:\Program Files\WindowsApps>cd c:\\Temp
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 1 "C:\\Python312\\python" "mpiHill_UF.py" --init 'Init_MDS_Euc.pickle'   --mapping 'Mapping_REFINED.pickle'  --evolution "REFINED_Evolve.csv" --num 5
+Processors found:  1
+Time now at the beginning is:  2024-06-26 18:35:22.757393
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 50, in <module>
+    with open(args.init,'rb') as file:
+         ^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: "'Init_MDS_Euc.pickle'"
+
+c:\Temp>dir
+ Volume in drive C is Windows
+ Volume Serial Number is 20C0-F08A
+
+ Directory of c:\Temp
+
+26/06/2024  06:31 p. m.    <DIR>          .
+26/06/2024  06:08 p. m.               442 config.py
+26/06/2024  06:29 p. m.            26,699 convert_images.ipynb
+18/06/2024  07:44 p. m.         5,281,621 dataset_nuevo_corregido.csv
+26/06/2024  06:31 p. m.             1,499 Init_MDS_Euc.pickle
+26/06/2024  05:59 p. m.             3,902 mpiHill_UF.py
+26/06/2024  06:02 p. m.             5,145 paraHill.py
+26/06/2024  06:30 p. m.    <DIR>          refined_imagenes
+26/06/2024  06:29 p. m.            29,799 REFINED_Viz (1).ipynb
+26/06/2024  06:08 p. m.             9,605 Toolbox.py
+26/06/2024  06:32 p. m.    <DIR>          __pycache__
+               8 File(s)      5,358,712 bytes
+               3 Dir(s)  228,124,585,984 bytes free
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:48:57.142719
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:57:50.764009
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:57:50.764009
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:57:50.764009
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:57:50.774028
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:58:46.419826
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:58:46.420827
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:58:46.419826
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Time now at the beginning is:  2024-06-26 19:58:46.421826
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+TabError: inconsistent use of tabs and spaces in indentation
+TabError: inconsistent use of tabs and spaces in indentation
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+TabError: inconsistent use of tabs and spaces in indentation
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+  File "c:\Temp\mpiHill_Hardcoded.py", line 91
+    with open("theMapping.pickle",'wb') as file:
+TabError: inconsistent use of tabs and spaces in indentation
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 79, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 68, in evaluate_centroid
+    results_array = np.array(results)
+                    ^^^^^^^^^^^^^^^^^
+ValueError: setting an array element with a sequence. The requested array has an inhomogeneous shape after 1 dimensions. The detected shape was (10,) + inhomogeneous part.
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 102, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 71, in evaluate_centroid
+    raise ValueError("Evaluation must be a scalar value")
+ValueError: Evaluation must be a scalar value
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 102, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 71, in evaluate_centroid
+    raise ValueError("Evaluation must be a scalar value")
+ValueError: Evaluation must be a scalar value
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 102, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 71, in evaluate_centroid
+    raise ValueError("Evaluation must be a scalar value")
+ValueError: Evaluation must be a scalar value
+Processors found:  5
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_Hardcoded.py", line 107, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 102, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 71, in evaluate_centroid
+    raise ValueError("Evaluation must be a scalar value")
+ValueError: Evaluation must be a scalar value
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_Hardcoded.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 10
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-4] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5 --mca plm_base_verbose
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: --mca plm_base_verbose
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: --mca plm_base_verbose
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: --mca plm_base_verbose
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: --mca plm_base_verbose
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: --mca plm_base_verbose
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5 -v
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: -v
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: -v
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: -v
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: -v
+usage: mpiHill_UF.py [-h] [--init INIT] [--mapping MAPPING]
+                     [--evolution EVOLUTION] [--num NUM]
+mpiHill_UF.py: error: unrecognized arguments: -v
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -v -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Unknown option: -v
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" --verbose -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Unknown option: --verbose
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" --mca plm_base_verbose -np 5 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Unknown option: --mca
+
+c:\Temp>"C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.exe" -np 7 "C:\\Python312\\python" "mpiHill_UF.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+
+
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.782835
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 69, in evaluate_centroid
+    evaluation = evaluate_swap(centroid, swap_coord, dist_matr, mapping_in_int, original_corr)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 53, in evaluate_swap
+    changed_corr = universial_corr(dist_matr,the_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 28, in universial_corr
+    feature_dist = distance.squareform(dist_matr)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 2339, in squareform
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.782835
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 69, in evaluate_centroid
+    evaluation = evaluate_swap(centroid, swap_coord, dist_matr, mapping_in_int, original_corr)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 53, in evaluate_swap
+    changed_corr = universial_corr(dist_matr,the_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 28, in universial_corr
+    feature_dist = distance.squareform(dist_matr)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 2335, in squareform
+    v = np.zeros((d * (d - 1)) // 2, dtype=X.dtype)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.81 MiB for an array with shape (499500,) and data type float64
+    X = _copy_array_if_base_present(X)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 129, in _copy_array_if_base_present
+    return a.copy()
+           ^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 7.63 MiB for an array with shape (1000, 1000) and data type float64
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.782835
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 69, in evaluate_centroid
+    evaluation = evaluate_swap(centroid, swap_coord, dist_matr, mapping_in_int, original_corr)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 53, in evaluate_swap
+    changed_corr = universial_corr(dist_matr,the_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 25, in universial_corr
+    pixel_dist = distance.pdist(coord)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 2180, in pdist
+    return pdist_fn(X, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.81 MiB for an array with shape (499500,) and data type float64
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.772835
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 64, in evaluate_centroid
+    original_corr = universial_corr(dist_matr, mapping_in_int)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 32, in universial_corr
+    L2_Norm = np.sqrt(sum((pixel_dist - feature_dist)**2)/sum(feature_dist**2))
+                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^~
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.81 MiB for an array with shape (499500, 1) and data type float64
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.752996
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 64, in evaluate_centroid
+    original_corr = universial_corr(dist_matr, mapping_in_int)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 25, in universial_corr
+    pixel_dist = distance.pdist(coord)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 2180, in pdist
+    return pdist_fn(X, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.81 MiB for an array with shape (499500,) and data type float64
+Processors found:  7
+Time now at the beginning is:  2024-06-26 20:18:37.783899
+Traceback (most recent call last):
+  File "c:\Temp\mpiHill_UF.py", line 109, in <module>
+    each_swap_dict = paraHill.evaluate_centroids_in_list(centr_list,dist_matr,map_in_int)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 108, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr,dist_matr,mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 64, in evaluate_centroid
+    original_corr = universial_corr(dist_matr, mapping_in_int)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\paraHill.py", line 25, in universial_corr
+    pixel_dist = distance.pdist(coord)
+                 ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\scipy\spatial\distance.py", line 2180, in pdist
+    return pdist_fn(X, out=out, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+numpy.core._exceptions._ArrayMemoryError: Unable to allocate 3.81 MiB for an array with shape (499500,) and data type float64
+mpiexec aborting job...
+
+job aborted:
+[ranks] message
+
+[0] job terminated by the user
+
+[1-6] terminated
+
+---- error analysis -----
+
+[0] on ARIELPC
+ctrl-c was hit. job aborted by the user.
+
+---- error analysis -----
+
+c:\Temp>"C:\\Python312\\python" "process_md5.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Loading data...
+Time now at the beginning:  2024-06-26 20:35:50.244618
+Data loaded.
+Actual time:  2024-06-26 20:35:50.244618
+Initial corr: >>> [0.99534967]
+> (0, 0) Corr: [0.99535294]
+Traceback (most recent call last):
+  File "c:\Temp\process_md5.py", line 142, in <module>
+    print(">>>", n_iter, "Corr:", universial_corr(dist_matr, map_in_int))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 67, in evaluate_centroids_in_list
+    def execute_coordination_swap(coord1, coord2, mapping_in_int):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 53, in evaluate_centroid
+    evaluation = 0
+                 ^^
+  File "c:\Temp\process_md5.py", line 41, in evaluate_swap
+    return np.nan
+
+  File "c:\Temp\process_md5.py", line 26, in universial_corr
+    the_map = mapping_in_int.copy()
+
+KeyboardInterrupt
+^C
+c:\Temp>"C:\\Python312\\python" "process_md5.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Loading data...
+Time now at the beginning:  2024-06-26 20:47:24.811093
+Data loaded.
+Actual time:  2024-06-26 20:47:24.811093
+Initial corr: >>> [0.99534967]
+Start hill climbing... 2024-06-26 20:47:25.180900 Number of iterations: 5
+Traceback (most recent call last):
+  File "c:\Temp\process_md5.py", line 139, in <module>
+    swap_dict = evaluate_centroids_in_list(centr_list, dist_matr, map_in_int)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 63, in evaluate_centroids_in_list
+    evaluation = evaluate_centroid(each_centr, dist_matr, mapping_in_int)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 49, in evaluate_centroid
+    evaluation = evaluate_swap(centroid, swap_coord, dist_matr, mapping_in_int, original_corr)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 37, in evaluate_swap
+    changed_corr = universial_corr(dist_matr, the_map)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Temp\process_md5.py", line 22, in universial_corr
+    L2_Norm = np.sqrt(sum((pixel_dist - feature_dist) ** 2) / sum(feature_dist ** 2))
+                                                              ^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+^C
+c:\Temp>"C:\\Python312\\python" "process_md5.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Loading data...
+Time now at the beginning:  2024-06-26 20:48:53.230584
+Data loaded.
+Actual time:  2024-06-26 20:48:53.240596
+Initial corr: >>> [0.99534967]
+Start hill climbing... 2024-06-26 20:48:53.601731
+Number of iterations: 5
+Number of features: 1000
+Traceback (most recent call last):
+  File "c:\Temp\process_md5.py", line 137, in <module>
+    print("Per iteration: ", len(product([0, 1, 2], repeat=2)), "centroids");
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: object of type 'itertools.product' has no len()
+
+c:\Temp>"C:\\Python312\\python" "process_md5.py" --init Init_MDS_Euc.pickle   --mapping Mapping_REFINED.pickle  --evolution REFINED_Evolve.csv --num 5
+Loading data...
+Time now at the beginning:  2024-06-26 20:50:02.915918
+Data loaded.
+Actual time:  2024-06-26 20:50:02.917928
+Initial corr: >>> [0.99534967]
+Start hill climbing... 2024-06-26 20:50:03.271264
+Number of iterations: 5
+Number of features: 1000
+> (0, 0) Corr: [0.99535294]
+Time now:  2024-06-26 21:07:37.188309
+> (0, 1) Corr: [0.99535581]
+Time now:  2024-06-26 21:14:20.931682
+> (0, 2) Corr: [0.99535878]
+Time now:  2024-06-26 21:20:33.113294
+> (1, 0) Corr: [0.99536828]
+Time now:  2024-06-26 21:27:10.722813
+> (1, 1) Corr: [0.99537305]
+Time now:  2024-06-26 21:33:44.906277
+> (1, 2) Corr: [0.99537325]
+Time now:  2024-06-26 21:39:54.939352
+> (2, 0) Corr: [0.99538354]
+Time now:  2024-06-26 21:46:03.986749
+> (2, 1) Corr: [0.99539404]
+Time now:  2024-06-26 21:52:12.121365
+> (2, 2) Corr: [0.99540252]
+Time now:  2024-06-26 21:57:56.145861
+>>> 0 Corr: [0.99540252]
+> (0, 0) Corr: [0.99541399]
+Time now:  2024-06-26 22:04:30.807175
+> (0, 1) Corr: [0.99541986]
+Time now:  2024-06-26 22:11:05.197580
+> (0, 2) Corr: [0.99543427]
+Time now:  2024-06-26 22:17:13.924344
+> (1, 0) Corr: [0.99545218]
+Time now:  2024-06-26 22:23:51.218052
+> (1, 1) Corr: [0.99546615]
+Time now:  2024-06-26 22:30:24.680653
+> (1, 2) Corr: [0.99547916]
+Time now:  2024-06-26 22:36:31.416772
+> (2, 0) Corr: [0.99549134]
+Time now:  2024-06-26 22:42:41.628103
+> (2, 1) Corr: [0.99551102]
+Time now:  2024-06-26 22:48:52.987932
+> (2, 2) Corr: [0.99552573]
+Time now:  2024-06-26 22:54:36.672795
+>>> 1 Corr: [0.99552573]
+> (0, 0) Corr: [0.99554404]
+Time now:  2024-06-26 23:01:11.555252
+> (0, 1) Corr: [0.99556013]
+Time now:  2024-06-26 23:07:47.631580
+> (0, 2) Corr: [0.99558218]
+Time now:  2024-06-26 23:13:55.206991
+> (1, 0) Corr: [0.99560679]
+Time now:  2024-06-26 23:20:27.637137
+> (1, 1) Corr: [0.9956235]
+Time now:  2024-06-26 23:27:01.614628
+> (1, 2) Corr: [0.99563436]
+Time now:  2024-06-26 23:33:09.310789
+> (2, 0) Corr: [0.9956513]
+Time now:  2024-06-26 23:39:19.683713
+> (2, 1) Corr: [0.99567273]
+Time now:  2024-06-26 23:45:29.126792
+> (2, 2) Corr: [0.99568906]
+Time now:  2024-06-26 23:51:14.563977
+>>> 2 Corr: [0.99568906]
+> (0, 0) Corr: [0.99570757]
+Time now:  2024-06-26 23:57:50.097958
+> (0, 1) Corr: [0.99571966]
+Time now:  2024-06-27 00:04:24.006972
+> (0, 2) Corr: [0.99573993]
+Time now:  2024-06-27 00:10:32.624366
+> (1, 0) Corr: [0.99576165]
+Time now:  2024-06-27 00:17:08.443691
+> (1, 1) Corr: [0.99577609]
+Time now:  2024-06-27 00:23:43.377367
+> (1, 2) Corr: [0.99578953]
+Time now:  2024-06-27 00:29:52.941766
+> (2, 0) Corr: [0.99580227]
+Time now:  2024-06-27 00:36:02.425272
+> (2, 1) Corr: [0.99581994]
+Time now:  2024-06-27 00:42:11.582781
+> (2, 2) Corr: [0.99583385]
+Time now:  2024-06-27 00:47:55.829882
+>>> 3 Corr: [0.99583385]
+> (0, 0) Corr: [0.99584676]
+Time now:  2024-06-27 00:54:32.273529
+> (0, 1) Corr: [0.99585654]
+Time now:  2024-06-27 01:01:06.288205
+> (0, 2) Corr: [0.99587038]
+Time now:  2024-06-27 01:07:15.312314
+> (1, 0) Corr: [0.99588335]
+Time now:  2024-06-27 01:13:49.651671
+> (1, 1) Corr: [0.99589145]
+Time now:  2024-06-27 01:20:25.718845
+> (1, 2) Corr: [0.99589729]
+Time now:  2024-06-27 01:26:34.729355
+> (2, 0) Corr: [0.9959024]
+Time now:  2024-06-27 01:32:43.740222
+> (2, 1) Corr: [0.99590939]
+Time now:  2024-06-27 01:38:54.575523
+> (2, 2) Corr: [0.99591337]
+Time now:  2024-06-27 01:44:38.732713
+>>> 4 Corr: [0.99591337]
+Time now at the end:  2024-06-27 01:44:39.443903
+
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
+c:\Temp>
