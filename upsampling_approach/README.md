@@ -1,0 +1,1 @@
+La implementación de este código viene de mi intuición
