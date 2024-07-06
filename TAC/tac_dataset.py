@@ -1,15 +1,15 @@
+import sys
 from pathlib import Path
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from torch.utils.data import Dataset, DataLoader
+
+sys.path.append(Path(__file__).resolve().parents[1].as_posix())
+
+from torch.utils.data import Dataset
 import torch
-import torchvision.transforms as transforms
 import torch.nn.functional as F
 
 from feature_vector_transformer import FeatureVectorTransformer
 from load_image import load_and_process_image
+from common.dataset import load_psa_data, split_data, create_dataloaders
 
 
 class TACDataset(Dataset):
@@ -50,40 +50,6 @@ class TACDataset(Dataset):
 
         label = self.y[idx]
         return convolved_image, label
-
-
-def load_psa_data():
-    df = pd.read_csv("dataset/psa_spectral_ratio.csv")
-    labels = pd.read_csv("dataset/psa_labels.csv")[["file", "soil_type"]]
-
-    df = df.merge(labels, left_on="ext_station_key", right_on="file", how="left")
-    df = df[df["orientation"] == "H/V"]
-    df = df.drop(columns=["station_key", "index", "orientation", "file"]).set_index(
-        ["ext_station_key"]
-    )
-
-    X = df.drop(columns=["soil_type"]).values
-    y = df["soil_type"].values
-    return X, y
-
-
-def split_data(X, y):
-    le = LabelEncoder()
-    y_encoded = le.fit_transform(y)
-
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y_encoded, test_size=0.2, random_state=42, stratify=y
-    )
-
-    num_classes = np.unique(y_encoded).size
-
-    return X_train, X_test, y_train, y_test, le, num_classes
-
-
-def create_dataloaders(train_dataset, test_dataset, batch_size=32):
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
-    return train_loader, test_loader
 
 
 def main():

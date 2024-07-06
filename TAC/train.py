@@ -1,106 +1,62 @@
-from matplotlib import pyplot as plt
-import torch
-import torch.nn as nn
-import torchvision.transforms as transforms
-from torch.utils.data import TensorDataset, DataLoader
-import torch.optim as optim
-from sklearn.metrics import accuracy_score, ConfusionMatrixDisplay
-import pandas as pd
-from model import ResNetClassifier
-from dataset import TACDataset, load_psa_data, create_dataloaders, split_data
+import sys
+from pathlib import Path
 
-# Load and split the data
+import torch
+
+sys.path.append(Path(__file__).resolve().parents[1].as_posix())
+
+from matplotlib import pyplot as plt
+from sklearn.metrics import ConfusionMatrixDisplay, f1_score
+from model import ResNetClassifier
+from tac_dataset import TACDataset
+from common.dataset import load_psa_data, create_dataloaders, split_data
+from common.train_utils import (
+    get_device,
+    get_optimizer,
+    get_criterion,
+    train_epoch,
+    evaluate_model,
+)
+
+current_dir = Path(__file__).resolve().parent
+models_dir = current_dir / "models"
+models_dir.mkdir(exist_ok=True)
+best_model_path = models_dir / "best_model.pth"
+
+lr = 0.0005
+num_epochs = 200
+batch_size = 32
+
 X, y = load_psa_data()
 X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(X, y)
-
-# Create train and test datasets
 train_dataset = TACDataset(X_train, y_train, label_encoder, transform=None)
 test_dataset = TACDataset(X_test, y_test, label_encoder, transform=None)
-
-# Create DataLoaders
 trainloader, testloader = create_dataloaders(train_dataset, test_dataset)
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-batch_size = 32
-
-
+device = get_device()
 model = ResNetClassifier(num_classes=num_classes).to(device)
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(
-    filter(lambda p: p.requires_grad, model.parameters()), lr=1e-4, weight_decay=1e-5
-)
+criterion = get_criterion()
+optimizer = get_optimizer(model, lr=lr)
 
-batch_size = 32
-num_classes = 8  # Adjust this according to your needs
-model.train()
-for epoch in range(100):
-    running_loss = 0.0
-    correct = 0
-    total = 0
-    for i, data in enumerate(trainloader, 0):
-        # get the inputs; data is a list of [inputs, labels]
-        inputs, labels = data
-        inputs = inputs.to(device)
-        labels = labels.to(device).long()
+best_f1_score = 0.0
 
-        # zero the parameter gradients
-        optimizer.zero_grad()
-
-        # forward + backward + optimize
-        outputs = model(inputs)
-        loss = criterion(outputs, labels)
-        loss.backward()
-        optimizer.step()
-
-        # accumulate loss
-        running_loss += loss.item()
-
-        # calculate accuracy
-        _, predicted = torch.max(outputs.data, 1)
-        total += labels.size(0)
-        correct += (predicted == labels).sum().item()
-
-    # print epoch statistics
-    if epoch % 20 == 0:
-        print(
-            f"[{epoch}] loss: {running_loss / len(trainloader):.3f}, accuracy: {100 * correct / total:.2f}%"
+for epoch in range(num_epochs):
+    loss, accuracy = train_epoch(model, trainloader, optimizer, criterion, device)
+    if epoch % 20 == 0 or epoch == num_epochs - 1:
+        y_train_true, y_train_pred, y_test_true, y_test_pred = evaluate_model(
+            model, trainloader, testloader, device
         )
+        val_f1 = f1_score(y_test_true, y_test_pred, average="weighted") * 100
 
-print(
-    f"Final epoch [{epoch}] loss: {running_loss / len(trainloader):.3f}, accuracy: {100 * correct / total:.2f}%"
-)
+        if val_f1 > best_f1_score:
+            best_f1_score = val_f1
+            torch.save(model.state_dict(), best_model_path)
 
+        print(f"[{epoch}] loss: {loss:.3f}, val F1-score: {val_f1:.2f}%")
 
-# Evaluate the model
-model.to("cpu")
-model.eval()
-y_train_pred, y_test_pred = [], []
-y_train_true, y_test_true = [], []
+print(f"Best F1-score: {best_f1_score:.2f}%")
+model.load_state_dict(torch.load(best_model_path))
 
-with torch.no_grad():
-    for data in trainloader:
-        inputs, labels = data
-        outputs = model(inputs)
-        _, predicted = torch.max(outputs, 1)
-        y_train_pred.extend(predicted.numpy())
-        y_train_true.extend(labels.numpy())
-
-    for data in testloader:
-        inputs, labels = data
-        outputs = model(inputs)
-        _, predicted = torch.max(outputs, 1)
-        y_test_pred.extend(predicted.numpy())
-        y_test_true.extend(labels.numpy())
-
-# Calculate accuracy
-train_accuracy = accuracy_score(y_train_true, y_train_pred)
-test_accuracy = accuracy_score(y_test_true, y_test_pred)
-
-print(f"The train accuracy was {train_accuracy:.3f}")
-print(f"The test accuracy was {test_accuracy:.3f}")
-
-# Display confusion matrix
 ConfusionMatrixDisplay.from_predictions(
     y_test_true, y_test_pred, display_labels=label_encoder.classes_
 )
