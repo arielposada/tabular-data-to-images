@@ -27,7 +27,7 @@ class TACDataset(Dataset):
     def load_base_image(self):
         cur_dir = Path(__file__).parent.absolute()
         image_path = cur_dir / "images/maltese_dog.jpg"
-        return load_and_process_image(image_path)
+        return load_and_process_image(image_path).unsqueeze(0)
 
     def __len__(self):
         return len(self.y)
@@ -42,7 +42,7 @@ class TACDataset(Dataset):
         # Apply the kernel to the base image using convolution
         with torch.no_grad():
             convolved_image = F.conv2d(
-                self.base_image.unsqueeze(0), kernel_tensor, padding="same"
+                self.base_image, kernel_tensor, padding="same"
             ).squeeze(0)
 
         if self.transform:

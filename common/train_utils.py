@@ -49,27 +49,18 @@ def train_epoch(model, trainloader, optimizer, criterion, device):
     return running_loss / len(trainloader), 100 * correct / total
 
 
-def evaluate_model(model, trainloader, testloader, device):
+def evaluate_model(model, dataloader, device):
     model.to(device)
     model.eval()
-    y_train_pred, y_test_pred = [], []
-    y_train_true, y_test_true = [], []
+    predictions, true_labels = [], []
 
     with torch.no_grad():
-        for data in trainloader:
+        for data in dataloader:
             inputs, labels = data
             inputs, labels = inputs.to(device), labels.to(device).long()
             outputs = model(inputs)
             _, predicted = torch.max(outputs, 1)
-            y_train_pred.extend(predicted.cpu().numpy())
-            y_train_true.extend(labels.cpu().numpy())
+            predictions.extend(predicted.cpu().numpy())
+            true_labels.extend(labels.cpu().numpy())
 
-        for data in testloader:
-            inputs, labels = data
-            inputs, labels = inputs.to(device), labels.to(device).long()
-            outputs = model(inputs)
-            _, predicted = torch.max(outputs, 1)
-            y_test_pred.extend(predicted.cpu().numpy())
-            y_test_true.extend(labels.cpu().numpy())
-
-    return y_train_true, y_train_pred, y_test_true, y_test_pred
+    return true_labels, predictions
