@@ -3,12 +3,13 @@ from sklearn.decomposition import PCA
 
 
 class FeatureVectorTransformer:
-    def __init__(self, max_kernel_size=11):
+    def __init__(self, max_kernel_size=11, scale_factor=1.0):
         self.j = None
         self.pca = None
         self.min_val = None
         self.max_val = None
         self.max_kernel_size = max_kernel_size
+        self.scale_factor = scale_factor
 
     def closest_odd(self, n, k):
         possible_lower = int(np.floor(np.sqrt(k)))
@@ -51,7 +52,7 @@ class FeatureVectorTransformer:
         normalized_vector = (
             2 * (vector - self.min_val) / (self.max_val - self.min_val) - 1
         )
-        return normalized_vector
+        return normalized_vector.clip(-1, 1)
 
     def transform(self, feature_vectors):
         """
@@ -74,7 +75,9 @@ class FeatureVectorTransformer:
                 normalized_vector = self.pca.transform(
                     normalized_vector.reshape(1, -1)
                 ).flatten()
-            kernel_matrix = normalized_vector.reshape(self.j, self.j)
+            kernel_matrix = (
+                normalized_vector.reshape(self.j, self.j) * self.scale_factor
+            )
             transformed_kernels.append(kernel_matrix)
 
         return np.array(transformed_kernels)

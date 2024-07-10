@@ -27,15 +27,16 @@ class SimpleCNN(nn.Module):
 
 
 class ResNetClassifier(nn.Module):
-    def __init__(self, num_classes=8):
+    def __init__(self, channel_in=3, num_classes=8):
         super(ResNetClassifier, self).__init__()
         # Load the pre-trained ResNet18 model
         self.resnet = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
 
-        # Modify the first convolutional layer to accept grayscale input (1 channel)
-        self.resnet.conv1 = nn.Conv2d(
-            1, 64, kernel_size=7, stride=2, padding=3, bias=False
-        )
+        if channel_in != 3:
+            # Modify the first convolutional layer to accept `channel_in` channels
+            self.resnet.conv1 = nn.Conv2d(
+                channel_in, 64, kernel_size=7, stride=2, padding=3, bias=False
+            )
 
         # Freeze all layers
         for param in self.resnet.parameters():
