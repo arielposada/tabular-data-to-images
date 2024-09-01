@@ -96,7 +96,7 @@ class CombinedModel(nn.Module):
                 mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]
             )
         else:
-            self.cnn = SimpleCNN(num_classes, input_image_size=image_size)
+            self.cnn = SimpleCNN(num_classes=num_classes, input_image_size=image_size)
 
     def forward(self, x):
         x = self.vector_to_image(x)

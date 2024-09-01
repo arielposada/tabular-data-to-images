@@ -5,9 +5,9 @@ from torchvision.models import ResNet18_Weights
 
 
 class SimpleCNN(nn.Module):
-    def __init__(self, num_classes=8):
+    def __init__(self, in_channels=3, num_classes=8):
         super(SimpleCNN, self).__init__()
-        self.conv1 = nn.Conv2d(3, 16, kernel_size=3, padding=1)
+        self.conv1 = nn.Conv2d(in_channels, 16, kernel_size=3, padding=1)
         self.pool = nn.MaxPool2d(2, 2)  # Output size: 16x15x15
         self.dropout1 = nn.Dropout(0.25)  # Dropout added for regularization
         self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)  # Output size: 32x7x7
