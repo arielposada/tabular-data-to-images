@@ -4,6 +4,80 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from torch.utils.data import DataLoader
 import torch
+import sys
+from pathlib import Path
+import pandas as pd
+
+sys.path.append(Path(__file__).resolve().parents[1].as_posix())
+
+
+from tabgan.sampler import (
+    GANGenerator,
+    LLMGenerator,
+)
+
+from ForestDiffusion import ForestDiffusionModel
+
+
+def augment_data(X_train, y_train, X_test, augment_strategy="original", return_np=True):
+    if augment_strategy == "none":
+        return X_train, y_train
+
+    # Convert to pandas dataframe
+    X_train = pd.DataFrame(
+        X_train, columns=["f" + str(i) for i in range(X_train.shape[1])]
+    )
+    X_test = pd.DataFrame(
+        X_test, columns=["f" + str(i) for i in range(X_test.shape[1])]
+    )
+    y_train = pd.DataFrame(y_train, columns=["Label"])
+    print(f"Training data before augmentation - shape: {X_train.shape}")
+    print(f"Augmentation strategy: {augment_strategy}")
+    if augment_strategy == "gan":
+        X_gen, y_gen = GANGenerator(
+            gen_params={"batch_size": 500, "epochs": 10, "patience": 5}
+        ).generate_data_pipe(
+            X_train,
+            y_train,
+            X_test,
+        )
+        X_train = pd.concat([X_train, X_gen], axis=0)
+        y_train = pd.concat([y_train, y_gen.to_frame()], axis=0)
+    elif augment_strategy == "forest_diffusion":
+        forest_model = ForestDiffusionModel(
+            X=X_train.to_numpy(),
+            label_y=y_train["Label"].to_numpy(),
+            n_t=50,
+            duplicate_K=100,
+            n_jobs=-1,
+        )
+        Xy_fake = forest_model.generate(batch_size=int(X_train.shape[0] * 1.1))
+        # Separate the labels and train generated data
+        X_gen = Xy_fake[:, :-1]
+        y_gen = Xy_fake[:, -1]
+        X_train = pd.concat([X_train, pd.DataFrame(X_gen)], axis=0)
+        y_train = pd.concat([y_train, pd.DataFrame(y_gen)], axis=0)
+    elif augment_strategy == "llm":
+        new_train, new_target = LLMGenerator(
+            gen_params={
+                "batch_size": 2,
+                "epochs": 4,
+                # "llm": "distilgpt2",
+                "llm": "facebook/opt-125m",
+                "max_length": 500,
+            }
+        ).generate_data_pipe(
+            X_train,
+            y_train,
+            X_test,
+        )
+        X_train = new_train
+        y_train = new_target
+
+    print(f"Training data after augmentation - shape: {X_train.shape}")
+    if return_np:
+        return X_train.values, y_train["Label"].values
+    return X_train, y_train
 
 
 def load_dataset(dataset_type):

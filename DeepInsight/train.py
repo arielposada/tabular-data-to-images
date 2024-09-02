@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 
+import pandas as pd
 from tqdm import tqdm
 
 sys.path.append(Path(__file__).resolve().parents[1].as_posix())
@@ -15,7 +16,7 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
 )
-from common.dataset import load_dataset, create_dataloaders, split_data
+from common.dataset import augment_data, load_dataset, create_dataloaders, split_data
 from common.train_utils import (
     get_device,
     get_optimizer,
@@ -69,7 +70,7 @@ def generate_tensor_data(X_train, X_test, y_train, y_test):
     return X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor
 
 
-def train(dataset_type="psa"):
+def train(dataset_type="psa", augment_strategy="none"):
     current_dir = Path(__file__).resolve().parent
     models_dir = current_dir / f"models/{dataset_type}"
     models_dir.mkdir(exist_ok=True, parents=True)
@@ -86,9 +87,14 @@ def train(dataset_type="psa"):
 
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(X, y)
+
+    X_train, y_train = augment_data(
+        X_train, y_train, X_test, augment_strategy, return_np=True
+    )
     X_train, X_test, y_train, y_test = generate_tensor_data(
         X_train, X_test, y_train, y_test
     )
+
     train_dataset = TensorDataset(X_train, y_train)
     test_dataset = TensorDataset(X_test, y_test)
 
@@ -135,6 +141,8 @@ def train(dataset_type="psa"):
 
 
 if __name__ == "__main__":
-    # train("psa")
-    # train("ddos")
-    train("covid")
+    for augment_strategy in [
+        "none",
+        "gan",
+    ]:
+        train("ddos", augment_strategy)

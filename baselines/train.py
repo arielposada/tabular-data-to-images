@@ -11,17 +11,18 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
 )
-from common.dataset import load_dataset, split_data
+from common.dataset import augment_data, load_dataset, split_data
 from model import get_model
 
 
-def train_model(dataset_type="psa", model_type="xgboost"):
+def train_model(dataset_type="psa", model_type="xgboost", augment_strategy="original"):
     print(f"Training {model_type} model on {dataset_type} dataset...")
 
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(
         X, y, return_tensor=False
     )
+    X_train, y_train = augment_data(X_train, y_train, X_test, augment_strategy)
 
     # Use the auxiliary function to get the model
     model = get_model(model_type, num_classes)
@@ -48,5 +49,11 @@ def train_model(dataset_type="psa", model_type="xgboost"):
 
 
 if __name__ == "__main__":
-    # train_model("ddos", "xgboost")
-    train_model("ddos", "random_forest")
+
+    for augment_strategy in [
+        "none",
+        "gan",
+        # "forest_diffusion",
+        # "llm",
+    ]:
+        train_model("ddos", "xgboost", augment_strategy)
