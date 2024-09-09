@@ -3,6 +3,7 @@ from pathlib import Path
 
 from tqdm import tqdm
 
+
 sys.path.append(Path(__file__).resolve().parents[1].as_posix())
 
 import torch
@@ -14,8 +15,9 @@ from sklearn.metrics import (
     precision_score,
     recall_score,
 )
-from common.model import ResNetClassifier
+from common.model import SimpleCNN
 from tac_dataset import TACDataset
+from feature_vector_transformer import FeatureVectorTransformer
 from common.dataset import load_dataset, create_dataloaders, split_data
 from common.train_utils import (
     get_device,
@@ -32,25 +34,45 @@ def train(dataset_type="psa"):
     models_dir.mkdir(exist_ok=True, parents=True)
     best_model_path = models_dir / "best_model.pth"
 
-    lr = 0.0005
+    lr = 5e-4
     batch_size = 32
     if dataset_type == "covid":
         num_epochs = 10
         print_epochs = 1
     else:
-        num_epochs = 100
+        num_epochs = 200
         print_epochs = 10
 
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(X, y)
-    train_dataset = TACDataset(X_train, y_train, label_encoder, transform=None)
-    test_dataset = TACDataset(X_test, y_test, label_encoder, transform=None)
+    feature_vector_transformer = FeatureVectorTransformer()
+    feature_vector_transformer.fit(X_train)
+    train_dataset = TACDataset(
+        X_train,
+        y_train,
+        label_encoder,
+        feature_vector_transformer=feature_vector_transformer,
+        transform=None,
+    )
+    test_dataset = TACDataset(
+        X_test,
+        y_test,
+        label_encoder,
+        feature_vector_transformer=feature_vector_transformer,
+        transform=None,
+    )
     trainloader, testloader = create_dataloaders(
         train_dataset, test_dataset, batch_size
     )
 
     device = get_device()
-    model = ResNetClassifier(channel_in=1, num_classes=num_classes).to(device)
+    # model = ResNetClassifier(channel_in=1, num_classes=num_classes).to(device)
+    image_size = train_dataset[0][0].shape[-1]
+    model = SimpleCNN(
+        in_channels=1,
+        num_classes=num_classes,
+        image_size=image_size,
+    ).to(device)
     criterion = get_criterion()
     optimizer = get_optimizer(model, lr=lr)
 
@@ -89,5 +111,5 @@ def train(dataset_type="psa"):
 
 if __name__ == "__main__":
     # train("psa")
-    # train("ddos")
-    train("covid")
+    train("ddos")
+    # train("covid")

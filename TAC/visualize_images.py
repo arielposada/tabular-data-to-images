@@ -3,10 +3,11 @@ from pathlib import Path
 
 sys.path.append(Path(__file__).resolve().parents[1].as_posix())
 
+from TAC.feature_vector_transformer import FeatureVectorTransformer
 from TAC.tac_dataset import TACDataset
 
 import torch
-from common.dataset import create_dataloaders, load_psa_data, split_data
+from common.dataset import create_dataloaders, load_dataset, load_psa_data, split_data
 from matplotlib import pyplot as plt
 
 current_dir = Path(__file__).resolve().parent
@@ -48,10 +49,25 @@ def visualize_samples_with_labels(images, labels, class_names, num_samples=5):
     plt.show()
 
 
-X, y = load_psa_data()
+dataset_type = "ddos"
+X, y = load_dataset(dataset_type)
 X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(X, y)
-train_dataset = TACDataset(X_train, y_train, label_encoder, transform=None)
-test_dataset = TACDataset(X_test, y_test, label_encoder, transform=None)
+feature_vector_transformer = FeatureVectorTransformer()
+feature_vector_transformer.fit(X_train)
+train_dataset = TACDataset(
+    X_train,
+    y_train,
+    label_encoder,
+    feature_vector_transformer=feature_vector_transformer,
+    transform=None,
+)
+test_dataset = TACDataset(
+    X_test,
+    y_test,
+    label_encoder,
+    feature_vector_transformer=feature_vector_transformer,
+    transform=None,
+)
 trainloader, testloader = create_dataloaders(train_dataset, test_dataset)
 
 # Get class names from label encoder

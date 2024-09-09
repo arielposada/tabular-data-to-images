@@ -2,26 +2,43 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 from torchvision.models import ResNet18_Weights
+import torch.nn.functional as F
 
 
 class SimpleCNN(nn.Module):
-    def __init__(self, in_channels=3, num_classes=8):
+    def __init__(self, in_channels=3, num_classes=8, image_size=128):
         super(SimpleCNN, self).__init__()
         self.conv1 = nn.Conv2d(in_channels, 16, kernel_size=3, padding=1)
-        self.pool = nn.MaxPool2d(2, 2)  # Output size: 16x15x15
-        self.dropout1 = nn.Dropout(0.25)  # Dropout added for regularization
-        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)  # Output size: 32x7x7
-        self.dropout2 = nn.Dropout(0.25)  # Another dropout layer for regularization
-        self.fc1 = nn.Linear(32 * 7 * 7, 128)
-        self.fc2 = nn.Linear(128, num_classes)
+
+        # Reduced pooling size to preserve more information
+        self.pool = nn.MaxPool2d(2, 2)
+        self.dropout1 = nn.Dropout(0.25)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
+        self.dropout2 = nn.Dropout(0.25)
+
+        # Additional convolutional layer to capture more complex patterns
+        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.dropout3 = nn.Dropout(0.25)
+
+        # Batch normalization to stabilize learning
+        self.bn1 = nn.BatchNorm2d(16)
+        self.bn2 = nn.BatchNorm2d(32)
+        self.bn3 = nn.BatchNorm2d(64)
+
+        fm_size = ((image_size // 2) // 2) // 2  # image_size/2 for each pooling layer
+
+        self.fc1 = nn.Linear(64 * fm_size * fm_size, 256)
+        self.fc2 = nn.Linear(256, num_classes)
 
     def forward(self, x):
-        x = self.pool(torch.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.bn1(self.conv1(x))))
         x = self.dropout1(x)
-        x = self.pool(torch.relu(self.conv2(x)))
+        x = self.pool(F.relu(self.bn2(self.conv2(x))))
         x = self.dropout2(x)
+        x = self.pool(F.relu(self.bn3(self.conv3(x))))
+        x = self.dropout3(x)
         x = x.view(x.size(0), -1)
-        x = torch.relu(self.fc1(x))
+        x = F.relu(self.fc1(x))
         x = self.fc2(x)
         return x
 

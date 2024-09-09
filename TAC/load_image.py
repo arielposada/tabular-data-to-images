@@ -6,11 +6,12 @@ import matplotlib.pyplot as plt
 # Define the transformation pipeline
 transform = transforms.Compose(
     [
-        transforms.Resize(256),  # Resize the image to 256x256
-        transforms.CenterCrop(224),  # Center crop the image to 224x224
+        # transforms.Resize(256),  # Resize the image to 256x256
+        # transforms.CenterCrop(224),  # Center crop the image to 224x224
+        transforms.Resize(36),
         transforms.Grayscale(num_output_channels=1),  # Convert to grayscale
         transforms.ToTensor(),  # Convert the image to a PyTorch tensor
-        transforms.Normalize(mean=[0.5], std=[0.5]),  # Normalize to [-1, 1]
+        # transforms.Normalize(mean=[0.5], std=[0.5]),  # Normalize to [-1, 1]
     ]
 )
 

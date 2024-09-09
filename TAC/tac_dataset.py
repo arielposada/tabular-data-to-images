@@ -13,20 +13,19 @@ from common.dataset import load_psa_data, split_data, create_dataloaders
 
 
 class TACDataset(Dataset):
-    def __init__(self, X, y, label_encoder, transform=None):
+    def __init__(self, X, y, label_encoder, feature_vector_transformer, transform=None):
         self.X = X
         self.y = y
         self.label_encoder = label_encoder
         self.transform = transform
 
         # Initialize the feature vector transformer
-        self.feature_vector_transformer = FeatureVectorTransformer()
-        self.feature_vector_transformer.fit(self.X)
+        self.feature_vector_transformer = feature_vector_transformer
         self.base_image = self.load_base_image()
 
     def load_base_image(self):
         cur_dir = Path(__file__).parent.absolute()
-        image_path = cur_dir / "images/maltese_dog.jpg"
+        image_path = cur_dir / "images/chess_pattern_36.jpg"
         return load_and_process_image(image_path).unsqueeze(0)
 
     def __len__(self):
@@ -41,8 +40,9 @@ class TACDataset(Dataset):
 
         # Apply the kernel to the base image using convolution
         with torch.no_grad():
+            padding = (kernel_tensor.shape[0] - 1) // 2
             convolved_image = F.conv2d(
-                self.base_image, kernel_tensor, padding="same"
+                self.base_image, kernel_tensor, padding=padding
             ).squeeze(0)
 
         if self.transform:

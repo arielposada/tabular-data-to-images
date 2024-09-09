@@ -29,7 +29,7 @@ from pyDeepInsight.utils import Norm2Scaler
 from sklearn.manifold import TSNE
 from torch.utils.data import TensorDataset
 import torchvision.transforms as transforms
-from common.model import ResNetClassifier
+from common.model import SimpleCNN
 
 
 def generate_tensor_data(X_train, X_test, y_train, y_test):
@@ -52,7 +52,7 @@ def generate_tensor_data(X_train, X_test, y_train, y_test):
     )
 
     # Building the model
-    image_size = (30, 30)
+    image_size = (36, 36)
     it = ImageTransformer(feature_extractor=reducer, pixels=image_size)
     it.fit(X_train_norm, y=y_train, plot=True)
     X_train_img = it.transform(X_train_norm)
@@ -76,13 +76,13 @@ def train(dataset_type="psa", augment_strategy="none"):
     models_dir.mkdir(exist_ok=True, parents=True)
     best_model_path = models_dir / "best_model.pth"
 
-    lr = 0.0005
+    lr = 1e-3
     batch_size = 32
     if dataset_type == "covid":
         num_epochs = 10
         print_epochs = 1
     else:
-        num_epochs = 100
+        num_epochs = 200
         print_epochs = 10
 
     X, y = load_dataset(dataset_type)
@@ -103,7 +103,12 @@ def train(dataset_type="psa", augment_strategy="none"):
     )
 
     device = get_device()
-    model = ResNetClassifier(channel_in=3, num_classes=num_classes).to(device)
+    # model = ResNetClassifier(channel_in=3, num_classes=num_classes).to(device)
+    model = SimpleCNN(
+        in_channels=3,
+        num_classes=num_classes,
+        image_size=36,
+    ).to(device)
     criterion = get_criterion()
     optimizer = get_optimizer(model, lr=lr)
 
