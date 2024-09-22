@@ -19,6 +19,9 @@ from tabgan.sampler import (
 from ForestDiffusion import ForestDiffusionModel
 
 
+dataset_dir = Path(__file__).resolve().parents[1] / "dataset"
+
+
 def augment_data(X_train, y_train, X_test, augment_strategy="original", return_np=True):
     if augment_strategy == "none":
         return X_train, y_train
@@ -92,14 +95,14 @@ def load_dataset(dataset_type):
 
 
 def load_covid_data():
-    df = pd.read_csv("dataset/covid/dataset_nuevo_corregido.csv")
+    df = pd.read_csv(dataset_dir / "covid/dataset_nuevo_corregido.csv")
     y = df["Risk_Label"].values
     X = df.drop(columns=["Risk_Label", "Risk"]).values
     return X, y
 
 
 def load_ddos_data():
-    df = pd.read_csv("dataset/DDoS/dataset_two_classes.csv")
+    df = pd.read_csv(dataset_dir / "DDoS/dataset_two_classes.csv")
     y = df["Label"].values
     X = df.drop(columns=["Label"])
     numeric_columns = X.select_dtypes(include=["number"]).columns
@@ -108,8 +111,10 @@ def load_ddos_data():
 
 
 def load_psa_data():
-    df = pd.read_csv("dataset/earthquake/psa_spectral_ratio.csv")
-    labels = pd.read_csv("dataset/earthquake/psa_labels.csv")[["file", "soil_type"]]
+    df = pd.read_csv(dataset_dir / "earthquake/psa_spectral_ratio.csv")
+    labels = pd.read_csv(dataset_dir / "earthquake/psa_labels.csv")[
+        ["file", "soil_type"]
+    ]
 
     df = df.merge(labels, left_on="ext_station_key", right_on="file", how="left")
     df = df[df["orientation"] == "H/V"]
