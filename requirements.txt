@@ -1,0 +1,17 @@
+tf-keras
+be-great
+tabgan
+sentencepiece
+ForestDiffusion
+pandas
+tqdm
+numpy
+scikit-learn
+matplotlib
+pyDeepInsight
+ipykernel
+jupyter
+ipywidgets
+kagglehub
+seaborn
+umap-learn
