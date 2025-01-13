@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
     for augment_strategy in [
         "none",
-        "gan",
+        # "gan",
         # "forest_diffusion",
         # "llm",
     ]:

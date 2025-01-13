@@ -16,13 +16,10 @@ from tabgan.sampler import (
     LLMGenerator,
 )
 
-from ForestDiffusion import ForestDiffusionModel
-
-
 dataset_dir = Path(__file__).resolve().parents[1] / "dataset"
 
 
-def augment_data(X_train, y_train, X_test, augment_strategy="original", return_np=True):
+def augment_data(X_train, y_train, X_test, augment_strategy="none", return_np=True):
     if augment_strategy == "none":
         return X_train, y_train
 
@@ -46,20 +43,6 @@ def augment_data(X_train, y_train, X_test, augment_strategy="original", return_n
         )
         X_train = pd.concat([X_train, X_gen], axis=0)
         y_train = pd.concat([y_train, y_gen.to_frame()], axis=0)
-    elif augment_strategy == "forest_diffusion":
-        forest_model = ForestDiffusionModel(
-            X=X_train.to_numpy(),
-            label_y=y_train["Label"].to_numpy(),
-            n_t=50,
-            duplicate_K=100,
-            n_jobs=-1,
-        )
-        Xy_fake = forest_model.generate(batch_size=int(X_train.shape[0] * 1.1))
-        # Separate the labels and train generated data
-        X_gen = Xy_fake[:, :-1]
-        y_gen = Xy_fake[:, -1]
-        X_train = pd.concat([X_train, pd.DataFrame(X_gen)], axis=0)
-        y_train = pd.concat([y_train, pd.DataFrame(y_gen)], axis=0)
     elif augment_strategy == "llm":
         new_train, new_target = LLMGenerator(
             gen_params={

@@ -1,13 +1,6 @@
 # tabular-data-to-images
 
-
-## Requirements
-To run data augmentations install the following prerequisite
-
 ```
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-
-pip install ForestDiffusion
 pip install tf-keras
 pip install be-great
 pip install tabgan
@@ -19,3 +12,16 @@ For deepinsight additionally:
 python3 -m pip -q install git+https://github.com/alok-ai-lab/pyDeepInsight.git#egg=pyDeepInsight
 ```
 
+
+## Basic Setup
+```
+conda create -n myenv python=3.10
+conda activate myenv
+pip install -r requirements.txt
+```
+
+If you are using a 'cuda' capable machine run
+```
+pip uninstall torch
+pip install torch --index-url https://download.pytorch.org/whl/cu118
+```
