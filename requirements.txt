@@ -1,3 +1,7 @@
+pandas
+numpy
+scikit-learn
+matplotlib
 tf-keras
 be-great
 tabgan
@@ -13,6 +17,7 @@ jupyter
 ipywidgets
 kagglehub
 seaborn
+tqdm
 umap-learn
 shap
 tabpfn
