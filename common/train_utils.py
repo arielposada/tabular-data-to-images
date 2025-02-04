@@ -3,6 +3,7 @@ import torch
 import torch.optim as optim
 import torch.nn as nn
 from sklearn.model_selection import StratifiedKFold
+from xgboost import XGBClassifier
 
 from sklearn.feature_selection import RFECV, mutual_info_classif
 from sklearn.decomposition import PCA
@@ -11,7 +12,7 @@ from .permutation_selector import PermutationRFECVSelector
 
 
 class DummySelector:
-    def fit(self, X, y):
+    def fit(self, X, y, *args, **kwargs):
         self.n_features_ = X.shape[1]
         return self
 
@@ -23,6 +24,36 @@ class DummySelector:
 
     def predict(self, X):
         return X
+
+    def fit_predict(self, X, y):
+        return self.fit(X, y).predict(X)
+
+
+class MutualInfoSelector:
+    def __init__(self, n_features=22, thresh=0.1, mode="threshold"):
+        self.n_features = n_features
+        self.mode = mode
+        self.thresh = thresh
+
+    def fit(self, X, y, *args, **kwargs):
+        scores = mutual_info_classif(X, y, random_state=42)
+        if self.mode == "threshold":
+            self.features = scores > self.thresh
+        else:
+            self.features = scores.argsort()[-self.n_features :][::-1]
+        return self
+
+    def transform(self, X):
+        return X[:, self.features]
+
+    def fit_transform(self, X, y):
+        return self.fit(X, y).transform(X)
+
+    def predict(self, X):
+        return X
+
+    def fit_predict(self, X, y):
+        return self.fit(X, y).predict(X)
 
 
 def get_feature_selector(estimator, name="rfecv", args={}):
@@ -36,8 +67,12 @@ def get_feature_selector(estimator, name="rfecv", args={}):
                 cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=42),
                 scoring="f1_weighted",
             )
+        if args.get("estimator") == "xgboost":
+            model = XGBClassifier()
+        else:
+            model = estimator
         return RFECV(
-            estimator=estimator,
+            estimator=model,
             step=0.1,
             cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=42),
             scoring="f1_weighted",
@@ -45,7 +80,7 @@ def get_feature_selector(estimator, name="rfecv", args={}):
     elif name == "pca":
         return PCA(n_components=args.get("n_components", 22))
     elif name == "mutual_info":
-        pass
+        return MutualInfoSelector(n_features=args.get("n_features", 22))
     elif name == "none":
         return DummySelector()
     else:

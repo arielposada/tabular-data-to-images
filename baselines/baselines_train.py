@@ -35,8 +35,28 @@ def get_classifier(classifier="xgboost"):
         return TabPFNClassifier(device="cuda")
     elif classifier == "auto_tabpfn":
         return AutoTabPFNClassifier(max_time=1800, device="cuda")
+    elif classifier == "auto_tabpfn3600":
+        return AutoTabPFNClassifier(max_time=3600, device="cuda")
     else:
         raise ValueError(f"Unsupported classifier: {classifier}")
+
+
+def save_results(base_name, pipeline, results, n_features, plt):
+    if os.path.isdir(f"./models/{base_name}") == False:
+        os.makedirs(f"./models/{base_name}")
+
+    with open(f"./models/{base_name}/{base_name}_results.txt", "w") as f:
+        res = f"Results for {base_name} model\n"
+        res += str(results)
+        res += "\n"
+        res += f"Number of selected features: {n_features}"
+        res += "\n results: "
+
+        values = ",".join([str(x) for x in results.values()])
+        res += f"\n{values}"
+        f.write(str(res))
+    plt.savefig(f"./models/{base_name}/{base_name}_confusion_matrix.png")
+    dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
 
 
 def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"):
@@ -45,6 +65,10 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(
         X, y, return_tensor=False
     )
+
+    if "tabpfn" in classifier and "none" in feat_selector:
+        print("TabPFN requires feature selection. Skipping training.")
+        return
 
     model = get_classifier(classifier)
     if (
@@ -74,7 +98,6 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
         n_features = selector.n_components_
     print(f"Number of selected features: {n_features}")
 
-
     print(f"Evaluating {classifier} model on test set...")
     y_test_pred = pipeline.predict(X_test)
     test_f1 = f1_score(y_test, y_test_pred, average="weighted")
@@ -93,33 +116,17 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     )
     plt.title("Confusion Matrix on Test Set")
     base_name = f"{classifier}_{feat_selector}"
-
-    if os.path.isdir(f"./models/{base_name}") == False:
-        os.makedirs(f"./models/{base_name}")
-
     results = {
         "f1_score": round(test_f1, 4),
         "accuracy": round(test_accuracy, 4),
         "precision": round(test_precision, 4),
         "recall": round(test_recall, 4),
     }
-    with open(f"./models/{base_name}/{base_name}_results.txt", "w") as f:
-        res = f"Results for {base_name} model\n"
-        res += str(results)
-        res += "\n"
-        res += f"Number of selected features: {n_features}"
-        res += "\n results: "
-
-        values = ",".join([str(x) for x in results.values()])
-        res += f"\n{values}"
-        f.write(str(res))
-    plt.savefig(f"./models/{base_name}/{base_name}_confusion_matrix.png")
-    dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
-
+    save_results(base_name, pipeline, results, n_features, plt)
 
 if __name__ == "__main__":
-    feature_selector = ["pca", "none", "rfecv"]
-    model = ["xgboost", "logistic_regression"] # "auto_tabpfn"
+    feature_selector = ["mutual_info", "rfecv", "none", "pca"]
+    model = ["logistic_regression", "xgboost", "auto_tabpfn", "auto_tabpfn3600"]  # "auto_tabpfn"
     for fs in feature_selector:
         for m in model:
             print(f"RUNNING MODEL {m} AND {fs} FEATURE EXTRACT")
