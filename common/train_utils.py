@@ -1,6 +1,43 @@
 import torch
 import torch.optim as optim
 import torch.nn as nn
+from sklearn.model_selection import StratifiedKFold
+
+from sklearn.feature_selection import RFECV, mutual_info_classif
+from sklearn.decomposition import PCA
+
+
+class DummySelector:
+    def fit(self, X, y):
+        self.n_features_ = X.shape[1]
+        return self
+
+    def transform(self, X):
+        return X
+
+    def fit_transform(self, X, y):
+        return self.fit(X, y).transform(X)
+
+    def predict(self, X):
+        return X
+
+
+def get_feature_selector(estimator, name="rfecv", args={}):
+    if name == "rfecv":
+        return RFECV(
+            estimator=estimator,
+            step=0.1,
+            cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=42),
+            scoring="f1_weighted",
+        )
+    elif name == "pca":
+        return PCA(n_components=args.get("n_components", 22))
+    elif name == "mutual_info":
+        pass
+    elif name == "none":
+        return DummySelector()
+    else:
+        raise ValueError(f"Unknown feature selector: {name}")
 
 
 def get_device():

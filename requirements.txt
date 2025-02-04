@@ -1,6 +1,6 @@
 pandas
 numpy
-scikit-learn
+scikit-learn  == 1.6.1 # RFE has a tag issue and not compatible with greater versions
 matplotlib
 tf-keras
 be-great

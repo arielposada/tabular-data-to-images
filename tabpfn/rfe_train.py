@@ -19,7 +19,7 @@ from matplotlib import pyplot as plt
 from tabpfn import TabPFNClassifier
 from tabpfn_extensions.post_hoc_ensembles.sklearn_interface import AutoTabPFNClassifier
 from common.dataset import load_dataset, split_data
-
+from common.train_utils import get_feature_selector
 
 def train_model_with_rfecv(dataset_type="ddos", mode="auto"):
     print(
@@ -30,12 +30,7 @@ def train_model_with_rfecv(dataset_type="ddos", mode="auto"):
         X, y, return_tensor=False
     )
     xgb = XGBClassifier()
-    rfecv = RFECV(
-        estimator=xgb,
-        step=0.1,
-        cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=42),
-        scoring="f1_weighted",
-    )
+    rfecv = get_feature_selector(xgb, name="rfecv")
     if mode == "auto":
         pfn = AutoTabPFNClassifier(max_time=1800, device="cuda")
     else:
