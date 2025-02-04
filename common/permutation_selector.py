@@ -132,6 +132,7 @@ class PermutationRFECVSelector(BaseEstimator, TransformerMixin):
             verbose=2,
         )
         self.rfecv_.fit(X_coarse, y)
+        self.n_features_ = self.rfecv_.n_features_
         return self
 
     def transform(self, X):
