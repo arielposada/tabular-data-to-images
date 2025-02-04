@@ -1,3 +1,4 @@
+from tabpfn import TabPFNClassifier
 import torch
 import torch.optim as optim
 import torch.nn as nn
@@ -5,6 +6,8 @@ from sklearn.model_selection import StratifiedKFold
 
 from sklearn.feature_selection import RFECV, mutual_info_classif
 from sklearn.decomposition import PCA
+
+from .permutation_selector import PermutationRFECVSelector
 
 
 class DummySelector:
@@ -24,6 +27,15 @@ class DummySelector:
 
 def get_feature_selector(estimator, name="rfecv", args={}):
     if name == "rfecv":
+        if isinstance(estimator, TabPFNClassifier):
+            return PermutationRFECVSelector(
+                base_estimator=estimator,
+                coarse_k=100,
+                # coarse_k=50,
+                step=0.1,
+                cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=42),
+                scoring="f1_weighted",
+            )
         return RFECV(
             estimator=estimator,
             step=0.1,
