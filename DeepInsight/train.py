@@ -30,6 +30,9 @@ from sklearn.manifold import TSNE
 from torch.utils.data import TensorDataset
 import torchvision.transforms as transforms
 from common.model import SimpleCNN
+from common.train_utils import get_feature_selector
+from joblib import dump
+import os
 
 
 def generate_tensor_data(X_train, X_test, y_train, y_test):
@@ -70,7 +73,29 @@ def generate_tensor_data(X_train, X_test, y_train, y_test):
     return X_train_tensor, X_test_tensor, y_train_tensor, y_test_tensor
 
 
-def train(dataset_type="psa", augment_strategy="none"):
+def save_results(base_name, pipeline, results, n_features, conf_matrix_plt):
+    if os.path.isdir(f"./models/{base_name}") == False:
+        os.makedirs(f"./models/{base_name}")
+
+    with open(f"./models/{base_name}/{base_name}_results.txt", "w") as f:
+        res = f"Results for {base_name} model\n"
+        res += str(results)
+        res += "\n"
+        res += f"Number of selected features: {n_features}"
+        res += "\n results: "
+
+        values = ",".join([str(x) for x in results.values()])
+        res += f"\n{values}"
+        f.write(str(res))
+    if conf_matrix_plt is not None:
+        conf_matrix_plt.savefig(
+            f"./models/{base_name}/{base_name}_confusion_matrix.png"
+        )
+    if pipeline is not None:
+        dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
+
+
+def train(dataset_type="psa", augment_strategy="none", feature_selector=None):
     current_dir = Path(__file__).resolve().parent
     models_dir = current_dir / f"models/{dataset_type}"
     models_dir.mkdir(exist_ok=True, parents=True)
@@ -85,12 +110,33 @@ def train(dataset_type="psa", augment_strategy="none"):
         num_epochs = 200
         print_epochs = 10
 
+    num_classes = 2
+    device = get_device()
+    # model = ResNetClassifier(channel_in=3, num_classes=num_classes).to(device)
+    model = SimpleCNN(
+        in_channels=3,
+        num_classes=num_classes,
+        image_size=36,
+    ).to(device)
+    criterion = get_criterion()
+    optimizer = get_optimizer(model, lr=lr)
+
+    # Dataset
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(X, y)
 
     X_train, y_train = augment_data(
         X_train, y_train, X_test, augment_strategy, return_np=True
     )
+
+    if isinstance(feature_selector, str):
+        selector = get_feature_selector(
+            model, name=feature_selector, args={"estimator": "xgboost"}
+        )
+        selector = selector.fit(X_train, y_train)
+        X_train = selector.transform(X_train)
+        X_test = selector.transform(X_test)
+
     X_train, X_test, y_train, y_test = generate_tensor_data(
         X_train, X_test, y_train, y_test
     )
@@ -103,14 +149,6 @@ def train(dataset_type="psa", augment_strategy="none"):
     )
 
     device = get_device()
-    # model = ResNetClassifier(channel_in=3, num_classes=num_classes).to(device)
-    model = SimpleCNN(
-        in_channels=3,
-        num_classes=num_classes,
-        image_size=36,
-    ).to(device)
-    criterion = get_criterion()
-    optimizer = get_optimizer(model, lr=lr)
 
     best_f1_score = 0.0
 
@@ -142,12 +180,28 @@ def train(dataset_type="psa", augment_strategy="none"):
     ConfusionMatrixDisplay.from_predictions(
         y_test_true, y_test_pred, display_labels=label_encoder.classes_
     )
-    plt.show()
+    # plt.show()
+    base_name = f"deepinsight_{augment_strategy}_{feature_selector}"
+    save_results(
+        base_name,
+        None,
+        {
+            "f1_score": round(test_f1, 4),
+            "accuracy": round(test_accuracy, 4),
+            "precision": round(test_precision, 4),
+            "recall": round(test_recall, 4),
+        },
+        X_train.shape[-1],
+        plt,
+    )
 
 
 if __name__ == "__main__":
-    for augment_strategy in [
-        "none",
-        "gan",
-    ]:
-        train("ddos", augment_strategy)
+    # for augment_strategy in [
+    #     "none",
+    #     "gan",
+    # ]:
+    augment_strategy = "none"
+    feat_selector = ["none", "pca", "rfecv"]
+    for fs in feat_selector:
+        train("ddos", augment_strategy, feature_selector=fs)
