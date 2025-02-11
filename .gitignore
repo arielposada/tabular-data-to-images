@@ -166,3 +166,4 @@ IGTD/
 models/
 .pth
 DeepInsight/models/
+DeepInsight/models/ddos/best_model.pth
