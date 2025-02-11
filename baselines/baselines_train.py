@@ -56,8 +56,12 @@ def save_results(base_name, pipeline, results, n_features, plt):
         res += f"\n{values}"
         f.write(str(res))
     plt.savefig(f"./models/{base_name}/{base_name}_confusion_matrix.png")
-    dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
+    plt.close()
 
+def save_model(base_name, pipeline):
+    if os.path.isdir(f"./models/{base_name}") == False:
+        os.makedirs(f"./models/{base_name}")
+    dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
 
 def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"):
     print(f"Running {feat_selector}-based feature selection using {classifier}.")
@@ -91,12 +95,15 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     pipeline.fit(X_train, y_train)
     selector = pipeline.named_steps["selector"]
 
-    n_features = X_train.shape[1]
+    n_features = X_train.shape[-1]
     if feat_selector == "rfecv":
         n_features = selector.n_features_
     elif feat_selector == "pca":
         n_features = selector.n_components_
     print(f"Number of selected features: {n_features}")
+
+    base_name = f"{classifier}_{feat_selector}"
+    save_model(base_name, pipeline)
 
     print(f"Evaluating {classifier} model on test set...")
     y_test_pred = pipeline.predict(X_test)
@@ -115,7 +122,6 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
         y_test, y_test_pred, display_labels=label_encoder.classes_
     )
     plt.title("Confusion Matrix on Test Set")
-    base_name = f"{classifier}_{feat_selector}"
     results = {
         "f1_score": round(test_f1, 4),
         "accuracy": round(test_accuracy, 4),
@@ -126,7 +132,7 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
 
 if __name__ == "__main__":
     feature_selector = ["mutual_info", "rfecv", "none", "pca"]
-    model = ["logistic_regression", "xgboost", "auto_tabpfn", "auto_tabpfn3600"]  # "auto_tabpfn"
+    model = ["auto_tabpfn3600"]  # "auto_tabpfn"
     for fs in feature_selector:
         for m in model:
             print(f"RUNNING MODEL {m} AND {fs} FEATURE EXTRACT")
