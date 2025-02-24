@@ -202,6 +202,6 @@ if __name__ == "__main__":
     #     "gan",
     # ]:
     augment_strategy = "none"
-    feat_selector = ["none", "pca", "rfecv"]
+    feat_selector = ["mutual_info"]
     for fs in feat_selector:
         train("ddos", augment_strategy, feature_selector=fs)

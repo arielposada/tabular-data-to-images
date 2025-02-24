@@ -63,7 +63,7 @@ def save_model(base_name, pipeline):
         os.makedirs(f"./models/{base_name}")
     dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
 
-def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"):
+def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv", args={}):
     print(f"Running {feat_selector}-based feature selection using {classifier}.")
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(
@@ -81,7 +81,7 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
         featselect_classifier = XGBClassifier()
     else:
         featselect_classifier = model
-    feature_selector = get_feature_selector(featselect_classifier, name=feat_selector)
+    feature_selector = get_feature_selector(featselect_classifier, name=feat_selector, args=args)
 
     pipelinelst = []
     if feat_selector == "pca":
@@ -95,14 +95,13 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     pipeline.fit(X_train, y_train)
     selector = pipeline.named_steps["selector"]
 
-    n_features = X_train.shape[-1]
-    if feat_selector == "rfecv":
-        n_features = selector.n_features_
-    elif feat_selector == "pca":
+    if feat_selector == "pca":
         n_features = selector.n_components_
+    else:
+        n_features = selector.n_features_
     print(f"Number of selected features: {n_features}")
 
-    base_name = f"{classifier}_{feat_selector}"
+    base_name = f"{classifier}_{feat_selector}_n{n_features}"
     save_model(base_name, pipeline)
 
     print(f"Evaluating {classifier} model on test set...")
@@ -131,9 +130,10 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     save_results(base_name, pipeline, results, n_features, plt)
 
 if __name__ == "__main__":
-    feature_selector = ["mutual_info", "rfecv", "none", "pca"]
-    model = ["auto_tabpfn3600"]  # "auto_tabpfn"
+    feature_selector = ["mutual_info"]
+    model = ["auto_tabpfn"]  # "auto_tabpfn"
+    args = {"n_features": 200}
     for fs in feature_selector:
         for m in model:
             print(f"RUNNING MODEL {m} AND {fs} FEATURE EXTRACT")
-            train_model("ddos", m, fs)
+            train_model("ddos", m, fs, args)

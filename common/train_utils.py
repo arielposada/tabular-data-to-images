@@ -30,8 +30,8 @@ class DummySelector:
 
 
 class MutualInfoSelector:
-    def __init__(self, n_features=22, thresh=0.1, mode="threshold"):
-        self.n_features = n_features
+    def __init__(self, n_features=22, thresh=0.1, mode="features"):
+        self.n_features_ = n_features
         self.mode = mode
         self.thresh = thresh
 
@@ -39,8 +39,9 @@ class MutualInfoSelector:
         scores = mutual_info_classif(X, y, random_state=42)
         if self.mode == "threshold":
             self.features = scores > self.thresh
+            self.n_features_ = sum(self.features)
         else:
-            self.features = scores.argsort()[-self.n_features :][::-1]
+            self.features = scores.argsort()[-self.n_features_ :][::-1]
         return self
 
     def transform(self, X):
