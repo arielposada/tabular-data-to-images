@@ -79,9 +79,9 @@ def get_feature_selector(estimator, name="rfecv", args={}):
             scoring="f1_weighted",
         )
     elif name == "pca":
-        return PCA(n_components=args.get("n_components", 22))
+        return PCA(n_components=args.get("n_components", 200))
     elif name == "mutual_info":
-        return MutualInfoSelector(n_features=args.get("n_features", 22))
+        return MutualInfoSelector(n_features=args.get("n_features", 200))
     elif name == "none":
         return DummySelector()
     else:

@@ -131,7 +131,7 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
 
 if __name__ == "__main__":
     feature_selector = ["mutual_info"]
-    model = ["auto_tabpfn"]  # "auto_tabpfn"
+    model = ["deepinsight"]  # "auto_tabpfn"
     args = {"n_features": 200}
     for fs in feature_selector:
         for m in model:
