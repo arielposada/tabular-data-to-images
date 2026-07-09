@@ -22,5 +22,5 @@ umap-learn
 shap
 tabpfn
 optuna
-git+https://github.com/hyperopt/hyperopt-sklearn.git
-git+https://github.com/priorlabs/tabpfn-extensions.git
+# git+https://github.com/hyperopt/hyperopt-sklearn.git
+# git+https://github.com/priorlabs/tabpfn-extensions.git

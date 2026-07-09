@@ -4,6 +4,7 @@ import os
 
 sys.path.append(Path(__file__).resolve().parents[1].as_posix())
 
+import numpy as np
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import (
     f1_score,
@@ -14,16 +15,20 @@ from sklearn.metrics import (
 )
 
 from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn import svm
 from joblib import dump
 from xgboost import XGBClassifier
 from matplotlib import pyplot as plt
 from tabpfn import TabPFNClassifier
 from sklearn.preprocessing import StandardScaler
 
-from tabpfn_extensions.post_hoc_ensembles.sklearn_interface import AutoTabPFNClassifier
+# from tabpfn_extensions.post_hoc_ensembles.sklearn_interface import AutoTabPFNClassifier
 from common.dataset import load_dataset, split_data
 from common.train_utils import get_feature_selector
+from lstm.model import TabularLSTMClassifier
+from transformer.model import TabularTransformerClassifier
 
 
 def get_classifier(classifier="xgboost"):
@@ -31,12 +36,20 @@ def get_classifier(classifier="xgboost"):
         return XGBClassifier()
     elif classifier == "logistic_regression":
         return LogisticRegression()
+    elif classifier == "random_forest":
+        return RandomForestClassifier()
+    elif classifier == "svm":
+        return svm.SVC()
     elif classifier == "tabpfn":
         return TabPFNClassifier(device="cuda")
     elif classifier == "auto_tabpfn":
         return AutoTabPFNClassifier(max_time=1800, device="cuda")
     elif classifier == "auto_tabpfn3600":
         return AutoTabPFNClassifier(max_time=3600, device="cuda")
+    elif classifier == "lstm":
+        return TabularLSTMClassifier()
+    elif classifier == "transformer":
+        return TabularTransformerClassifier()
     else:
         raise ValueError(f"Unsupported classifier: {classifier}")
 
@@ -58,17 +71,27 @@ def save_results(base_name, pipeline, results, n_features, plt):
     plt.savefig(f"./models/{base_name}/{base_name}_confusion_matrix.png")
     plt.close()
 
+
 def save_model(base_name, pipeline):
     if os.path.isdir(f"./models/{base_name}") == False:
         os.makedirs(f"./models/{base_name}")
     dump(pipeline, f"./models/{base_name}/{base_name}_pipeline.joblib")
 
-def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv", args={}):
+
+def train_model(
+    dataset_type="ddos", classifier="xgboost", feat_selector="rfecv", args={}
+):
     print(f"Running {feat_selector}-based feature selection using {classifier}.")
     X, y = load_dataset(dataset_type)
     X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(
         X, y, return_tensor=False
     )
+
+    unique, counts = np.unique(y_train, return_counts=True)
+    total = len(y_train)
+    print("Training set class distribution:")
+    for cls, cnt in zip(label_encoder.inverse_transform(unique), counts):
+        print(f"  {cls}: {cnt} ({100 * cnt / total:.1f}%)")
 
     if "tabpfn" in classifier and "none" in feat_selector:
         print("TabPFN requires feature selection. Skipping training.")
@@ -76,12 +99,16 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
 
     model = get_classifier(classifier)
     if (
-        "tabpfn" in classifier or "deepinsight" in classifier
+        "tabpfn" in classifier
+        or "deepinsight" in classifier
+        or classifier in ("lstm", "transformer")
     ) and feat_selector == "rfecv":
         featselect_classifier = XGBClassifier()
     else:
         featselect_classifier = model
-    feature_selector = get_feature_selector(featselect_classifier, name=feat_selector, args=args)
+    feature_selector = get_feature_selector(
+        featselect_classifier, name=feat_selector, args=args
+    )
 
     pipelinelst = []
     if feat_selector == "pca":
@@ -129,9 +156,18 @@ def train_model(dataset_type="ddos", classifier="xgboost", feat_selector="rfecv"
     }
     save_results(base_name, pipeline, results, n_features, plt)
 
+
 if __name__ == "__main__":
-    feature_selector = ["mutual_info"]
-    model = ["deepinsight"]  # "auto_tabpfn"
+    feature_selector = ["none"]
+    model = [
+        "xgboost",
+        "lstm",
+        "transformer",
+        "logistic_regression",
+        "random_forest",
+        "svm",
+        "deepinsight",
+    ]  # "auto_tabpfn"
     args = {"n_features": 200}
     for fs in feature_selector:
         for m in model:
