@@ -1,0 +1,54 @@
+C:\Users\jessi\Documents\git repos\Tesis Doctorado\tabular-data-to-images\.venv\lib\site-packages\tabgan\__init__.py:2: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783655050.011263   19664 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783655053.246085   19664 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:From C:\Users\jessi\Documents\git repos\Tesis Doctorado\tabular-data-to-images\.venv\lib\site-packages\tf_keras\src\losses.py:2976: The name tf.losses.sparse_softmax_cross_entropy is deprecated. Please use tf.compat.v1.losses.sparse_softmax_cross_entropy instead.
+
+IGTD step 0: err=201823595896.0000
+IGTD step 50: err=196523616115.0000
+IGTD step 100: err=191710812891.0000
+IGTD step 150: err=187715551859.0000
+IGTD step 200: err=183172827701.0000
+IGTD step 250: err=179119970912.0000
+IGTD step 300: err=174902014568.0000
+IGTD step 350: err=170397573964.0000
+IGTD step 400: err=165893171984.0000
+IGTD step 450: err=161147182289.0000
+IGTD step 500: err=156768264423.0000
+IGTD step 550: err=152577697319.0000
+IGTD step 600: err=148737947122.0000
+IGTD step 650: err=145239418433.0000
+IGTD step 700: err=142258444162.0000
+IGTD step 750: err=139854673472.0000
+IGTD step 800: err=137275853607.0000
+IGTD step 850: err=135278891423.0000
+IGTD step 900: err=133451203225.0000
+IGTD step 950: err=131889204058.0000
+[0] loss: 0.870, val F1-score: 56.50%
+[10] loss: 0.584, val F1-score: 63.41%
+[20] loss: 0.605, val F1-score: 51.93%
+[30] loss: 0.542, val F1-score: 64.41%
+[40] loss: 0.540, val F1-score: 62.77%
+[50] loss: 0.525, val F1-score: 51.58%
+[60] loss: 0.537, val F1-score: 61.29%
+[70] loss: 0.512, val F1-score: 63.06%
+[80] loss: 0.508, val F1-score: 68.46%
+[90] loss: 0.447, val F1-score: 66.45%
+[100] loss: 0.468, val F1-score: 68.04%
+[110] loss: 0.445, val F1-score: 64.78%
+[120] loss: 0.451, val F1-score: 66.45%
+[130] loss: 0.440, val F1-score: 66.01%
+[140] loss: 0.424, val F1-score: 63.39%
+[150] loss: 0.434, val F1-score: 64.41%
+[160] loss: 0.430, val F1-score: 66.52%
+[170] loss: 0.469, val F1-score: 62.77%
+[180] loss: 0.441, val F1-score: 71.86%
+[190] loss: 0.415, val F1-score: 64.44%
+[199] loss: 0.413, val F1-score: 70.60%
+Test F1-score: 71.86%
+Test Accuracy: 72.62%
+Test Precision: 73.79%
+Test Recall: 72.62%
+Timing: {'igtd_fit_seconds': 59.08512130000054, 'igtd_transform_seconds': 0.016120199999932083, 'cnn_train_seconds': 12.787319400000342, 'n_train': 332, 'n_test': 84}

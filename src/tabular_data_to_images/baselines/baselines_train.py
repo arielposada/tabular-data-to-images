@@ -1,0 +1,172 @@
+import torch  # noqa: F401  (import first: avoids a numpy/torch DLL init clash on Windows)
+
+import numpy as np
+from sklearn.model_selection import StratifiedKFold
+from sklearn.metrics import (
+    f1_score,
+    accuracy_score,
+    precision_score,
+    recall_score,
+    ConfusionMatrixDisplay,
+)
+
+from sklearn.pipeline import Pipeline
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn import svm
+from joblib import dump
+from xgboost import XGBClassifier
+from matplotlib import pyplot as plt
+from tabpfn import TabPFNClassifier
+from sklearn.preprocessing import StandardScaler
+
+# from tabpfn_extensions.post_hoc_ensembles.sklearn_interface import AutoTabPFNClassifier
+from tabular_data_to_images.common.dataset import load_dataset, split_data
+from tabular_data_to_images.common.train_utils import get_feature_selector
+from tabular_data_to_images.lstm.model import TabularLSTMClassifier
+from tabular_data_to_images.transformer.model import TabularTransformerClassifier
+from tabular_data_to_images.paths import MODELS_DIR
+
+
+def get_classifier(classifier="xgboost"):
+    if classifier == "xgboost":
+        return XGBClassifier()
+    elif classifier == "logistic_regression":
+        return LogisticRegression()
+    elif classifier == "random_forest":
+        return RandomForestClassifier()
+    elif classifier == "svm":
+        return svm.SVC()
+    elif classifier == "tabpfn":
+        return TabPFNClassifier(device="cuda")
+    elif classifier == "auto_tabpfn":
+        return AutoTabPFNClassifier(max_time=1800, device="cuda")
+    elif classifier == "auto_tabpfn3600":
+        return AutoTabPFNClassifier(max_time=3600, device="cuda")
+    elif classifier == "lstm":
+        return TabularLSTMClassifier()
+    elif classifier == "transformer":
+        return TabularTransformerClassifier()
+    else:
+        raise ValueError(f"Unsupported classifier: {classifier}")
+
+
+def save_results(base_name, pipeline, results, n_features, plt):
+    out_dir = MODELS_DIR / base_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    with open(out_dir / f"{base_name}_results.txt", "w") as f:
+        res = f"Results for {base_name} model\n"
+        res += str(results)
+        res += "\n"
+        res += f"Number of selected features: {n_features}"
+        res += "\n results: "
+
+        values = ",".join([str(x) for x in results.values()])
+        res += f"\n{values}"
+        f.write(str(res))
+    plt.savefig(out_dir / f"{base_name}_confusion_matrix.png")
+    plt.close()
+
+
+def save_model(base_name, pipeline):
+    out_dir = MODELS_DIR / base_name
+    out_dir.mkdir(parents=True, exist_ok=True)
+    dump(pipeline, out_dir / f"{base_name}_pipeline.joblib")
+
+
+def train_model(
+    dataset_type="ddos", classifier="xgboost", feat_selector="rfecv", args={}
+):
+    print(f"Running {feat_selector}-based feature selection using {classifier}.")
+    X, y = load_dataset(dataset_type)
+    X_train, X_test, y_train, y_test, label_encoder, num_classes = split_data(
+        X, y, return_tensor=False
+    )
+
+    unique, counts = np.unique(y_train, return_counts=True)
+    total = len(y_train)
+    print("Training set class distribution:")
+    for cls, cnt in zip(label_encoder.inverse_transform(unique), counts):
+        print(f"  {cls}: {cnt} ({100 * cnt / total:.1f}%)")
+
+    if "tabpfn" in classifier and "none" in feat_selector:
+        print("TabPFN requires feature selection. Skipping training.")
+        return
+
+    model = get_classifier(classifier)
+    if (
+        "tabpfn" in classifier
+        or "deepinsight" in classifier
+        or classifier in ("lstm", "transformer")
+    ) and feat_selector == "rfecv":
+        featselect_classifier = XGBClassifier()
+    else:
+        featselect_classifier = model
+    feature_selector = get_feature_selector(
+        featselect_classifier, name=feat_selector, args=args
+    )
+
+    pipelinelst = []
+    if feat_selector == "pca":
+        scaler = StandardScaler()
+        pipelinelst.append(("scaler", scaler))
+    pipeline = Pipeline(
+        [*pipelinelst, ("selector", feature_selector), ("classifier", model)]
+    )
+
+    print("Training ...")
+    pipeline.fit(X_train, y_train)
+    selector = pipeline.named_steps["selector"]
+
+    if feat_selector == "pca":
+        n_features = selector.n_components_
+    else:
+        n_features = selector.n_features_
+    print(f"Number of selected features: {n_features}")
+
+    base_name = f"{classifier}_{feat_selector}_n{n_features}"
+    save_model(base_name, pipeline)
+
+    print(f"Evaluating {classifier} model on test set...")
+    y_test_pred = pipeline.predict(X_test)
+    test_f1 = f1_score(y_test, y_test_pred, average="weighted")
+    test_accuracy = accuracy_score(y_test, y_test_pred)
+    test_precision = precision_score(y_test, y_test_pred, average="weighted")
+    test_recall = recall_score(y_test, y_test_pred, average="weighted")
+
+    print(f"\n=== Test Set Performance === {classifier} + {feat_selector}")
+    print(f"F1-score:      {test_f1 * 100:.2f}%")
+    print(f"Accuracy:      {test_accuracy * 100:.2f}%")
+    print(f"Precision:     {test_precision * 100:.2f}%")
+    print(f"Recall:        {test_recall * 100:.2f}%")
+
+    ConfusionMatrixDisplay.from_predictions(
+        y_test, y_test_pred, display_labels=label_encoder.classes_
+    )
+    plt.title("Confusion Matrix on Test Set")
+    results = {
+        "f1_score": round(test_f1, 4),
+        "accuracy": round(test_accuracy, 4),
+        "precision": round(test_precision, 4),
+        "recall": round(test_recall, 4),
+    }
+    save_results(base_name, pipeline, results, n_features, plt)
+
+
+if __name__ == "__main__":
+    feature_selector = ["none"]
+    model = [
+        "xgboost",
+        "lstm",
+        "transformer",
+        "logistic_regression",
+        "random_forest",
+        "svm",
+        "deepinsight",
+    ]  # "auto_tabpfn"
+    args = {"n_features": 200}
+    for fs in feature_selector:
+        for m in model:
+            print(f"RUNNING MODEL {m} AND {fs} FEATURE EXTRACT")
+            train_model("ddos", m, fs, args)

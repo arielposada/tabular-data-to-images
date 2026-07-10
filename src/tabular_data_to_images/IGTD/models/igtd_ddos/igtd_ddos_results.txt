@@ -1,0 +1,6 @@
+Results for igtd_ddos model
+{'f1_score': 0.7186, 'accuracy': 0.7262, 'precision': 0.7379, 'recall': 0.7262}
+Number of selected features: 1246
+ results: 
+0.7186,0.7262,0.7379,0.7262
+timing: {'igtd_fit_seconds': 59.08512130000054, 'igtd_transform_seconds': 0.016120199999932083, 'cnn_train_seconds': 12.787319400000342, 'n_train': 332, 'n_test': 84}
