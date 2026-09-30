@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 import numpy as np
+from sklearn.preprocessing import StandardScaler
 
 from tabular_data_to_images.common.train_utils import (
     get_criterion,
@@ -74,6 +75,13 @@ class TabularTransformerClassifier:
         X = np.array(X, dtype=np.float32)
         y = np.array(y, dtype=np.int64)
 
+        # Raw tabular features can span many orders of magnitude (e.g. byte
+        # counts vs. ratios); unnormalized inputs blow up the attention
+        # dot-products in float32 and the model trains to NaN. Standardize
+        # per-feature before embedding.
+        self.scaler_ = StandardScaler()
+        X = self.scaler_.fit_transform(X).astype(np.float32)
+
         self.classes_ = np.unique(y)
         self.n_features_ = X.shape[1]
         n_classes = len(self.classes_)
@@ -107,6 +115,7 @@ class TabularTransformerClassifier:
 
     def _forward_batched(self, X):
         X = np.array(X, dtype=np.float32)
+        X = self.scaler_.transform(X).astype(np.float32)
         self.model_.eval()
         X_t = torch.tensor(X).unsqueeze(-1)
         loader = DataLoader(TensorDataset(X_t), batch_size=self.batch_size, shuffle=False)

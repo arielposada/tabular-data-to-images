@@ -1,3 +1,6 @@
+import random
+
+import numpy as np
 from tabpfn import TabPFNClassifier
 import torch
 import torch.optim as optim
@@ -90,6 +93,14 @@ def get_feature_selector(estimator, name="rfecv", args={}):
 
 def get_device():
     return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def set_seed(seed: int):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 
 def get_optimizer(model, lr=1e-4, weight_decay=1e-5):
